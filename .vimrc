@@ -29,7 +29,7 @@ augroup vimrc_autocmds
 augroup END
 
 highlight ColorColumn ctermbg=darkgrey guibg=darkgrey
-
+" let &colorcolumn=join(range(81, 1000), ",") " highlight line 81-on
 
 augroup indentation_le
   autocmd!

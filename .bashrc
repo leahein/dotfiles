@@ -1,6 +1,12 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
+
+#######################################################################
+# Enable Autojump
+#######################################################################
+. /usr/share/autojump/autojump.sh
+
 #######################################################################
 # Start tmux correctly on login
 #######################################################################
@@ -103,9 +109,13 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Alias for activating a virtual environment
+alias va='source venv/bin/activate'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -182,9 +192,9 @@ function git_branch {
 #User and pwd
 PS1_DIR="\[$BOLD\]\[$COLOR_BLUE\]\u@\h \[$BOLD\]\[$COLOR_PURPLE\][\w] "
 PS1_GIT="\[\$(git_color)\]\[$BOLD\]\$(git_branch)\[$BOLD\]\[$COLOR_RESET\]"
-PS1_END="\[$BOLD\]//  \[$COLOR_RESET\]"
+PS1_END="\[$BOLD\]//  \[$COLOR_RESET\]\n> "
 PS1="${PS1_DIR}${PS1_GIT}${PS1_END}"
 
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin:$PATH:/opt/python/bin
 export VISUAL=vim
 export EDITOR="$VISUAL"

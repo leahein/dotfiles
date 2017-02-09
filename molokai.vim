@@ -237,7 +237,8 @@ if &t_Co > 255
        hi CursorLine               ctermbg=234   cterm=none
        hi CursorLineNr ctermfg=208               cterm=none
 
-       hi Boolean         ctermfg=135
+       hi Boolean         ctermfg=135               cterm=none
+       hi Builtin         ctermfg=135               cterm=bold
        hi Character       ctermfg=222
        hi Number          ctermfg=135
        hi String          ctermfg=222
@@ -247,7 +248,7 @@ if &t_Co > 255
        hi DiffDelete      ctermfg=125 ctermbg=000
 
        hi Directory       ctermfg=154               cterm=bold
-       hi Error           ctermfg=222 ctermbg=000
+       hi Error           ctermfg=219 ctermbg=000
        hi Exception       ctermfg=148               cterm=none
        hi Float           ctermfg=135
        hi Function        ctermfg=148
@@ -261,6 +262,7 @@ if &t_Co > 255
 
        hi Statement       ctermfg=81               cterm=none
        hi Structure       ctermfg=161
+       hi Special         ctermfg=135
        hi SpecialKey      ctermfg=161
        hi Tag             ctermfg=197
        hi Title           ctermfg=203

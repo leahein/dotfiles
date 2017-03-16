@@ -4,6 +4,7 @@ Plug 'hdima/python-syntax'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'scrooloose/nerdtree'
+Plug 'hynek/vim-python-pep8-indent'
 call plug#end()
 
 colorscheme molokai
@@ -34,7 +35,7 @@ augroup vimrc_autocmds
 augroup END
 
 highlight ColorColumn ctermbg=darkgrey guibg=darkgrey
-" let &colorcolumn=join(range(81, 1000), ",") " highlight line 81-on
+let &colorcolumn=join(range(81, 1000), ",") " highlight line 81-on
 
 augroup indentation_le
   autocmd!

@@ -117,6 +117,10 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # Alias for activating a virtual environment
 alias va='source venv/bin/activate'
 
+alias kvpn='sudo openvpn \
+    --config ~/openvpn/leaheinhorn.conf \
+    --up /etc/openvpn/update-resolv-conf \
+    --script-security 2'
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -139,6 +143,8 @@ fi
 
 # tab auto-completion
 bind TAB:menu-complete
+# tab auto-completion to go back
+bind '"\e[Z": menu-complete-backward'
 
 if [ -x /usr/bin/mint-fortune ]; then
      /usr/bin/mint-fortune
@@ -148,6 +154,8 @@ if [ -f /etc/bash_completion ]; then
  . /etc/bash_completion
 fi
 
+# Environment Variables
+export ZEMANTA_ENV="test"
 
 #Git Branch
 COLOR_RED="\033[0;31m"

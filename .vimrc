@@ -9,6 +9,8 @@ Plug 'dkprice/vim-easygrep'
 Plug 'airblade/vim-rooter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-commentary'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'benmills/vimux'
 call plug#end()
 
 " Color Scheme Settings
@@ -74,6 +76,10 @@ cabbrev t tabn
 " close help menu
 cabbrev hc helpclose
 
+" avoid swap files
+set nobackup
+set noswapfile
+
 " echo current file path
 cabbrev fp echo expand('%:p')
 
@@ -107,6 +113,10 @@ nnoremap gp :bp<CR>
 set grepprg=git\ grep\ -n\ $*
 let g:EasyGrepCommand = 1 " use grep, NOT vimgrep
 let g:EasyGrepJumpToMatch = 0 " Do not jump to the first match
+
+" Vimux prompt for a command to run
+map <Leader>vc :VimuxPromptCommand<CR>
+map <Leader>vp :VimuxRunLastCommand<CR>
 
 " Ctrl p
 let g:ctrlp_working_path_mode = 'rw' " start from cwd

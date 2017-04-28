@@ -92,6 +92,7 @@ xterm*|rxvt*)
     ;;
 esac
 
+# Alias definitions.
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -124,7 +125,8 @@ alias kvpn='sudo openvpn \
     --config ~/openvpn/leaheinhorn.conf \
     --up /etc/openvpn/update-resolv-conf \
     --script-security 2'
-# Alias definitions.
+
+alias code='cd ~/Development/code/'
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.

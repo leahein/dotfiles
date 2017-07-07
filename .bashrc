@@ -24,8 +24,11 @@ esac
 # Turn off freezing the terminal with Ctrl S
 stty -ixon
 
+# Pipe a fortune to a fun font
+fortune | toilet -t -f mini  | lolcat
+
 # Pipe a word of the day to cowsay
-shuf -n 1 ~/Development/config_settings/words.txt | cowsay
+# shuf -n 1 ~/Development/config_settings/words.txt |
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -163,19 +166,23 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 # Environment Variables
-export ZEMANTA_ENV="test"
+export ZEMANTA_ENV='test'
+export VAULT_ADDR='https://mgmt-vault.keplergrp.com:8200'
+export CA_CERTIFICATES_CRT='/usr/local/share/ca-certificates/vault-ca.crt'
 
-#Git Branch
+# Colors
 COLOR_RED="\033[0;31m"
 COLOR_YELLOW="\033[0;33m"
 COLOR_GREEN="\033[0;32m"
 COLOR_PURPLE="\033[1;35m"
 COLOR_ORANGE="\033[38;5;202m"
-COLOR_BLUE="\033[34;5;115m"
+COLOR_BLUE="\033[0;34m"
 COLOR_WHITE="\033[0;37m"
 COLOR_RESET="\033[0m"
+COLOR_GRAY_TEXT_BACKGROUND="\033[37;44m"
 BOLD="$(tput bold)"
 
+# Git branch colors
 function git_color {
   local git_status="$(git status 2> /dev/null)"
   local branch="$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
@@ -208,9 +215,15 @@ function git_branch {
 #User and pwd
 PS1_DIR="\[$BOLD\]\[$COLOR_BLUE\]\u@\h \[$BOLD\]\[$COLOR_PURPLE\][\w] "
 PS1_GIT="\[\$(git_color)\]\[$BOLD\]\$(git_branch)\[$BOLD\]\[$COLOR_RESET\]"
-PS1_END="\[$BOLD\]//  \[$COLOR_RESET\]\n> "
+PS1_END="\n\[$COLOR_GRAY_TEXT_BACKGROUND\]\t\[$COLOR_RED $BOLD\]♥ \[$COLOR_BLUE\]// \[$COLOR_RESET\]"
 PS1="${PS1_DIR}${PS1_GIT}${PS1_END}"
 
 export PATH=$HOME/bin:$PATH:/opt/python/bin
 export VISUAL=vim
 export EDITOR="$VISUAL"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/leaheinhorn/Downloads/google-cloud-sdk/path.bash.inc' ]; then source '/home/leaheinhorn/Downloads/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/leaheinhorn/Downloads/google-cloud-sdk/completion.bash.inc' ]; then source '/home/leaheinhorn/Downloads/google-cloud-sdk/completion.bash.inc'; fi

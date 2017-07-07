@@ -34,6 +34,7 @@ Plug 'junegunn/rainbow_parentheses.vim'
   " Sneak
 call plug#end()
 " }}}
+
 " Color Scheme Settings {{{
 colorscheme molokai
 let g:molokai_original = 1
@@ -166,6 +167,19 @@ set grepprg=git\ grep\ -n\ $*
 let g:EasyGrepCommand = 1 " use grep, NOT vimgrep
 let g:EasyGrepJumpToMatch = 0 " Do not jump to the first match
 " }}}
+
+"  Plugin: Rainbow Parentheses {{{
+
+let g:rainbow#max_level = 16
+let g:rainbow#pairs = [['(', ')'], ['[', ']']]
+augroup rainbow_settings
+  " Section to turn on rainbow parentheses
+  autocmd!
+  autocmd BufEnter,BufRead * :RainbowParentheses
+  autocmd BufEnter,BufRead *.html,*.css,*.jsx,*.js :RainbowParentheses!
+augroup END
+
+"  }}}
 
 " Vimux prompt for a command to run {{{
 map <Leader>vc :VimuxPromptCommand<CR>

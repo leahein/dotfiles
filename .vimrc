@@ -122,7 +122,7 @@ augroup fold_settings
   autocmd FileType vim,tmux setlocal foldmethod=marker
   autocmd FileType vim,tmux setlocal foldlevelstart=0
 augroup END
-nnoremap z<space>zA
+" nnoremap z<space> zA
 "}}}
 
 " Newline on commas (for function parameters) {{{

@@ -127,12 +127,15 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # Alias for activating a virtual environment
 alias va='source venv/bin/activate'
 
+# Alias  VPN
 alias kvpn='sudo openvpn \
     --config ~/openvpn/leaheinhorn.conf \
     --up /etc/openvpn/update-resolv-conf \
     --script-security 2'
 
 alias code='cd ~/Development/code/'
+
+alias chrome='google-chrome-stable'
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.

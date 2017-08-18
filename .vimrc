@@ -5,7 +5,6 @@ Plug 'hdima/python-syntax'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'scrooloose/nerdtree'
-Plug 'hynek/vim-python-pep8-indent'
 Plug 'dkprice/vim-easygrep'
 Plug 'airblade/vim-rooter'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -17,6 +16,8 @@ Plug 'junegunn/rainbow_parentheses.vim'
   " Airline
   " TagBar
   " AutoComplete !!
+    " vim-virtualenv
+    " Jedi-Vim
   " Rooter cwd
   " Quickfix, use shortcuts
   " Nerdtree, use shortcuts
@@ -65,7 +66,6 @@ noremap ii o<esc>
 noremap <c-c> ^i# <esc>
 " noremap <C-S-C> "+yy
 " noremap <C-S-V> "+p
-inoremap ` <esc>
 inoremap <c-z> <esc>ui
 
 " Mapping for finding by entire Word

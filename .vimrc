@@ -2,9 +2,9 @@
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'hdima/python-syntax'
-Plug 'hynek/vim-python-pep8-indent'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'scrooloose/nerdtree'
+Plug 'hynek/vim-python-pep8-indent'
 Plug 'dkprice/vim-easygrep'
 Plug 'airblade/vim-rooter'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -12,27 +12,20 @@ Plug 'tpope/vim-commentary'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'benmills/vimux'
 Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'justinmk/vim-sneak'
 " Future Plugins to install:
   " Airline
   " TagBar
   " AutoComplete !!
-    " vim-virtualenv
-    " Jedi-Vim
-  " Rooter cwd
   " Quickfix, use shortcuts
   " Nerdtree, use shortcuts
   " WinResizer
   " Use tabs
-  " Easy Grep
-  " Fugitive
   " Resize width
   " OmniCompletion
-  " Ctrl P auto
   " Close Help, or quickfix
   " Jump to left or right window
   " Key Remappings !!
-  " Visual Star Search
-  " Sneak
 call plug#end()
 " }}}
 
@@ -166,6 +159,20 @@ nnoremap gp :bp<CR>
 set grepprg=git\ grep\ -n\ $*
 let g:EasyGrepCommand = 1 " use grep, NOT vimgrep
 let g:EasyGrepJumpToMatch = 0 " Do not jump to the first match
+" }}}
+
+" VisualSearch - use * and # in visual mode {{{
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R><C-R>=substitute(
+  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R><C-R>=substitute(
+  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <expr> // 'y/\V'.escape(@",'\').'<CR>'
 " }}}
 
 "  Plugin: Rainbow Parentheses {{{

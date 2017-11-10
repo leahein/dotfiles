@@ -3,11 +3,6 @@
 # for examples
 
 #######################################################################
-# Enable Autojump
-#######################################################################
-. /usr/share/autojump/autojump.sh
-
-#######################################################################
 # Start tmux correctly on login
 #######################################################################
 
@@ -25,7 +20,8 @@ esac
 stty -ixon
 
 # Pipe a fortune to a fun font
-fortune | toilet -t -f mini  | lolcat
+# Dependencies: Fortune, Figlet, Lolcat
+fortune | lolcat
 
 # Pipe a word of the day to cowsay
 # shuf -n 1 ~/Development/config_settings/words.txt |
@@ -169,7 +165,6 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 # Environment Variables
-export ZEMANTA_ENV='test'
 export VAULT_ADDR='https://mgmt-vault.keplergrp.com:8200'
 export CA_CERTIFICATES_CRT='/usr/local/share/ca-certificates/vault-ca.crt'
 
@@ -215,6 +210,7 @@ function git_branch {
     echo "($commit) "
   fi
 }
+
 #User and pwd
 PS1_DIR="\[$BOLD\]\[$COLOR_BLUE\]\u@\h \[$BOLD\]\[$COLOR_PURPLE\][\w] "
 PS1_GIT="\[\$(git_color)\]\[$BOLD\]\$(git_branch)\[$BOLD\]\[$COLOR_RESET\]"
@@ -224,9 +220,3 @@ PS1="${PS1_DIR}${PS1_GIT}${PS1_END}"
 export PATH=$HOME/bin:$PATH:/opt/python/bin
 export VISUAL=vim
 export EDITOR="$VISUAL"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/leaheinhorn/Downloads/google-cloud-sdk/path.bash.inc' ]; then source '/home/leaheinhorn/Downloads/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/leaheinhorn/Downloads/google-cloud-sdk/completion.bash.inc' ]; then source '/home/leaheinhorn/Downloads/google-cloud-sdk/completion.bash.inc'; fi

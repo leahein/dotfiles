@@ -13,6 +13,9 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'benmills/vimux'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'justinmk/vim-sneak'
+Plug 'derekwyatt/vim-scala'
+Plug 'ckarnell/Antonys-macro-repeater'
+" Plug 'davidhalter/jedi-vim'
 " Future Plugins to install:
   " Airline
   " TagBar

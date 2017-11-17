@@ -19,9 +19,9 @@ esac
 # Turn off freezing the terminal with Ctrl S
 stty -ixon
 
-# Pipe a fortune to a fun font
-# Dependencies: Fortune, Figlet, Lolcat
-fortune | lolcat
+# Bashrc Fun Message
+# Dependencies: Figlet, Lolcat
+cat quotes.json | jq ".[$(((RANDOM % 39 )+1))]" | lolcat
 
 # Pipe a word of the day to cowsay
 # shuf -n 1 ~/Development/config_settings/words.txt |
@@ -94,7 +94,8 @@ xterm*|rxvt*)
     ;;
 esac
 
-# Alias definitions.
+### Alias definitions ###
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -122,6 +123,10 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 # Alias for activating a virtual environment
 alias va='source venv/bin/activate'
+
+# Alias for copy / paste from terminal
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
 
 # Alias  VPN
 alias kvpn='sudo openvpn \

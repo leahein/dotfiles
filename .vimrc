@@ -15,6 +15,8 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'derekwyatt/vim-scala'
 Plug 'ckarnell/Antonys-macro-repeater'
+Plug 'tell-k/vim-autopep8'
+Plug 'rust-lang/rust.vim'
 " Plug 'davidhalter/jedi-vim'
 " Future Plugins to install:
   " Airline

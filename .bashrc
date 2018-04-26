@@ -132,9 +132,13 @@ alias pbpaste='xclip -selection clipboard -o'
 alias kvpn='sudo openvpn \
     --config ~/openvpn/leaheinhorn.conf \
     --up /etc/openvpn/update-resolv-conf \
+    --down /etc/openvpn/update-resolv-conf \
     --script-security 2'
 
 alias code='cd ~/Development/code/'
+alias scripts='cd ~/Development/scripts/'
+alias kipcreate='cd ~/Development/code/KIP-Create-API/create_api'
+alias kipplaybook='cd ~/Development/code/KIP-Create-API/playbook_api'
 
 alias chrome='google-chrome-stable'
 # You may want to put all your additions into a separate file like
@@ -172,6 +176,7 @@ fi
 # Environment Variables
 export VAULT_ADDR='https://mgmt-vault.keplergrp.com:8200'
 export CA_CERTIFICATES_CRT='/usr/local/share/ca-certificates/vault-ca.crt'
+export PIPENV_VENV_IN_PROJECT='yes'
 
 # Colors
 COLOR_RED="\033[0;31m"

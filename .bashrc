@@ -3,12 +3,17 @@
 # for examples
 
 #######################################################################
-# Start tmux correctly on login
+# Startup
 #######################################################################
 
-# alias tmux='tmux -2'
-# [[ $TERM != "screen"  ]] && (exec tmux -2 new -s SR || echo "")
-# alias tmux='tmux -2'
+# Bashrc Quotes
+# Dependencies: Figlet, Lolcat, jq
+cat quotes.json | jq ".[$(((RANDOM % 38 )+1))]" | lolcat
+
+
+#######################################################################
+# General Configurations
+#######################################################################
 
 # If not running interactively, don't do anything
 case $- in
@@ -16,37 +21,39 @@ case $- in
       *) return;;
 esac
 
-# Turn off freezing the terminal with Ctrl S
-stty -ixon
-
-# Bashrc Fun Message
-# Dependencies: Figlet, Lolcat
-cat quotes.json | jq ".[$(((RANDOM % 39 )+1))]" | lolcat
-
-# Pipe a word of the day to cowsay
-# shuf -n 1 ~/Development/config_settings/words.txt |
-
+# History Configurations
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
-
 # append to the history file, don't overwrite it
 shopt -s histappend
-
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
+
+# Turn off freezing the terminal with Ctrl S
+stty -ixon
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
+# Tab auto-completion
+bind TAB:menu-complete
+# Tab auto-completion to go back
+bind '"\e[Z": menu-complete-backward'
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+if [ -x /usr/bin/mint-fortune ]; then
+     /usr/bin/mint-fortune
+fi
+
+if [ -f /etc/bash_completion ]; then
+ . /etc/bash_completion
+fi
+
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
@@ -58,9 +65,8 @@ case "$TERM" in
     xterm|xterm-color|*-256color) color_prompt=yes;;
 esac
 
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
+# uncomment for a colored prompt, if the terminal has the capability; 
+# turned off by default 
 #force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
@@ -94,7 +100,9 @@ xterm*|rxvt*)
     ;;
 esac
 
-### Alias definitions ###
+##############################################################################
+# Aliases
+##############################################################################
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -107,9 +115,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
-
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -135,12 +140,24 @@ alias kvpn='sudo openvpn \
     --down /etc/openvpn/update-resolv-conf \
     --script-security 2'
 
+# CD Aliases
 alias code='cd ~/Development/code/'
 alias scripts='cd ~/Development/scripts/'
 alias kipcreate='cd ~/Development/code/KIP-Create-API/create_api'
 alias kipplaybook='cd ~/Development/code/KIP-Create-API/playbook_api'
 
 alias chrome='google-chrome-stable'
+
+# Check if it's raining in NYC
+function raining {
+  local raining="$(curl -s wttr.in/nyc | grep -c Rain )"
+  if [[ $raining = 0 ]]; then
+    echo "No rain coming down!"
+  else
+    echo "Looks like rain :("
+  fi
+}
+
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
@@ -149,34 +166,23 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-# if ! shopt -oq posix; then
-  # if [ -f /usr/share/bash-completion/bash_completion ]; then
-    # . /usr/share/bash-completion/bash_completion
-  # elif [ -f /etc/bash_completion ]; then
-    # . /etc/bash_completion
-  # fi
-# fi
-
-# tab auto-completion
-bind TAB:menu-complete
-# tab auto-completion to go back
-bind '"\e[Z": menu-complete-backward'
-
-if [ -x /usr/bin/mint-fortune ]; then
-     /usr/bin/mint-fortune
-fi
-
-if [ -f /etc/bash_completion ]; then
- . /etc/bash_completion
-fi
-
+######################################################################
 # Environment Variables
+######################################################################
+
+# Vault
 export VAULT_ADDR='https://mgmt-vault.keplergrp.com:8200'
 export CA_CERTIFICATES_CRT='/usr/local/share/ca-certificates/vault-ca.crt'
+
+# Python Virtual Env
 export PIPENV_VENV_IN_PROJECT='yes'
+
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+######################################################################
+# Variables
+######################################################################
 
 # Colors
 COLOR_RED="\033[0;31m"
@@ -190,7 +196,10 @@ COLOR_RESET="\033[0m"
 COLOR_GRAY_TEXT_BACKGROUND="\033[37;44m"
 BOLD="$(tput bold)"
 
-# Git branch colors
+######################################################################
+# Git branching
+######################################################################
+
 function git_color {
   local git_status="$(git status 2> /dev/null)"
   local branch="$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
@@ -221,12 +230,13 @@ function git_branch {
   fi
 }
 
-#User and pwd
+######################################################################
+# Profile
+######################################################################
+
 PS1_DIR="\[$BOLD\]\[$COLOR_BLUE\]\u@\h \[$BOLD\]\[$COLOR_PURPLE\][\w] "
 PS1_GIT="\[\$(git_color)\]\[$BOLD\]\$(git_branch)\[$BOLD\]\[$COLOR_RESET\]"
 PS1_END="\n\[$COLOR_GRAY_TEXT_BACKGROUND\]\t\[$COLOR_RED $BOLD\]♥ \[$COLOR_BLUE\]// \[$COLOR_RESET\]"
 PS1="${PS1_DIR}${PS1_GIT}${PS1_END}"
 
 export PATH=$HOME/bin:$PATH:/opt/python/bin
-export VISUAL=vim
-export EDITOR="$VISUAL"

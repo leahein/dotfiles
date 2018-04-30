@@ -65,8 +65,8 @@ case "$TERM" in
     xterm|xterm-color|*-256color) color_prompt=yes;;
 esac
 
-# uncomment for a colored prompt, if the terminal has the capability; 
-# turned off by default 
+# uncomment for a colored prompt, if the terminal has the capability;
+# turned off by default
 #force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
@@ -139,6 +139,9 @@ alias kvpn='sudo openvpn \
     --up /etc/openvpn/update-resolv-conf \
     --down /etc/openvpn/update-resolv-conf \
     --script-security 2'
+
+# Clean docker dangling images
+alias docker-clean='docker rmi --force $(docker images -a --filter=dangling=true)'
 
 # CD Aliases
 alias code='cd ~/Development/code/'

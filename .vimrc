@@ -1,7 +1,6 @@
 " All Plugins managed by Plugin Manager {{{
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
-Plug 'hdima/python-syntax'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'scrooloose/nerdtree'
 Plug 'hynek/vim-python-pep8-indent'
@@ -13,24 +12,25 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'benmills/vimux'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'justinmk/vim-sneak'
-Plug 'derekwyatt/vim-scala'
 Plug 'ckarnell/Antonys-macro-repeater'
 Plug 'tell-k/vim-autopep8'
+" Language-specific highlighting
+Plug 'hdima/python-syntax'
 Plug 'rust-lang/rust.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'derekwyatt/vim-scala'
 " Plug 'davidhalter/jedi-vim'
 " Future Plugins to install:
   " Airline
   " TagBar
-  " AutoComplete !!
+  " AutoComplete
   " Quickfix, use shortcuts
-  " Nerdtree, use shortcuts
   " WinResizer
   " Use tabs
   " Resize width
   " OmniCompletion
   " Close Help, or quickfix
   " Jump to left or right window
-  " Key Remappings !!
 call plug#end()
 " }}}
 

@@ -151,6 +151,8 @@ alias kipplaybook='cd ~/Development/code/KIP-Create-API/playbook_api'
 
 alias chrome='google-chrome-stable'
 
+alias vim='nvim'
+
 # Check if it's raining in NYC
 function raining {
   local raining="$(curl -s wttr.in/nyc | grep -c Rain )"
@@ -207,7 +209,7 @@ function git_color {
   local git_status="$(git status 2> /dev/null)"
   local branch="$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
   local git_commit="$(git --no-pager diff --stat origin/${branch} 2>/dev/null)"
-  if [[ ! $git_status =~ "working directory clean" ]]; then
+  if [[ ! $git_status =~ "working tree clean" ]]; then
     echo -e $COLOR_RED
   elif [[ $git_status =~ "Your branch is ahead of" ]]; then
     echo -e $COLOR_YELLOW
@@ -243,3 +245,10 @@ PS1_END="\n\[$COLOR_GRAY_TEXT_BACKGROUND\]\t\[$COLOR_RED $BOLD\]♥ \[$COLOR_BLU
 PS1="${PS1_DIR}${PS1_GIT}${PS1_END}"
 
 export PATH=$HOME/bin:$PATH:/opt/python/bin
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

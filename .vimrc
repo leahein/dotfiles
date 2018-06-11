@@ -14,11 +14,14 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'ckarnell/Antonys-macro-repeater'
 Plug 'tell-k/vim-autopep8'
+Plug 'wincent/ferret'
 " Language-specific highlighting
 Plug 'hdima/python-syntax'
 Plug 'rust-lang/rust.vim'
 Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 Plug 'derekwyatt/vim-scala'
+Plug 'jparise/vim-graphql'
 " Plug 'davidhalter/jedi-vim'
 " Future Plugins to install:
   " Airline
@@ -26,11 +29,9 @@ Plug 'derekwyatt/vim-scala'
   " AutoComplete
   " Quickfix, use shortcuts
   " WinResizer
-  " Use tabs
   " Resize width
   " OmniCompletion
   " Close Help, or quickfix
-  " Jump to left or right window
 call plug#end()
 " }}}
 

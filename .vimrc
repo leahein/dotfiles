@@ -232,3 +232,7 @@ augroup fix_whitespace_save
   autocmd BufWritePre * if index(blacklist, &ft) < 0 | execute ':FixWhitespace'
 augroup END
 " }}}
+
+" Javascript settings {{{
+let g:javascript_plugin_flow = 1
+" }}}

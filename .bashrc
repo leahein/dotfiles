@@ -30,6 +30,8 @@ shopt -s histappend
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
+PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
 
 # Turn off freezing the terminal with Ctrl S
 stty -ixon
@@ -238,6 +240,12 @@ function git_branch {
 ######################################################################
 # Profile
 ######################################################################
+
+# pyenv
+export PATH="/home/leaheinhorn/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 
 PS1_DIR="\[$BOLD\]\[$COLOR_BLUE\]\u@\h \[$BOLD\]\[$COLOR_PURPLE\][\w] "
 PS1_GIT="\[\$(git_color)\]\[$BOLD\]\$(git_branch)\[$BOLD\]\[$COLOR_RESET\]"

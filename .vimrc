@@ -1,9 +1,7 @@
 " All Plugins managed by Plugin Manager {{{
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
-Plug 'bronson/vim-trailing-whitespace'
 Plug 'scrooloose/nerdtree'
-Plug 'hynek/vim-python-pep8-indent'
 Plug 'dkprice/vim-easygrep'
 Plug 'airblade/vim-rooter'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -13,8 +11,8 @@ Plug 'benmills/vimux'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'ckarnell/Antonys-macro-repeater'
-Plug 'tell-k/vim-autopep8'
 Plug 'wincent/ferret'
+Plug 'dhruvasagar/vim-table-mode'
 " Language-specific highlighting
 Plug 'hdima/python-syntax'
 Plug 'rust-lang/rust.vim'
@@ -22,16 +20,18 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'derekwyatt/vim-scala'
 Plug 'jparise/vim-graphql'
-" Plug 'davidhalter/jedi-vim'
+Plug 'ekalinin/Dockerfile.vim'
+" Python Formatting Plugins
+Plug 'hynek/vim-python-pep8-indent'
+Plug 'tell-k/vim-autopep8'
+Plug 'bronson/vim-trailing-whitespace'
 " Future Plugins to install:
   " Airline
   " TagBar
   " AutoComplete
   " Quickfix, use shortcuts
   " WinResizer
-  " Resize width
   " OmniCompletion
-  " Close Help, or quickfix
 call plug#end()
 " }}}
 

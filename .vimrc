@@ -21,6 +21,7 @@ Plug 'mxw/vim-jsx'
 Plug 'derekwyatt/vim-scala'
 Plug 'jparise/vim-graphql'
 Plug 'ekalinin/Dockerfile.vim'
+Plug 'magicalbanana/sql-syntax-vim'
 " Python Formatting Plugins
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'tell-k/vim-autopep8'

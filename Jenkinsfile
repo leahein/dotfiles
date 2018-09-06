@@ -1,21 +1,22 @@
 pipeline {
   agent any
   environment {
-    BUILD_NUMBER = sh(returnStdout: true, script: "echo \"${env.BUILD_NUMBER}\"").trim()
+    sh 'set +x'
+    BUILD_NUMBER = sh(returnStdout: true, script: "echo ${env.BUILD_NUMBER}").trim()
+    sh 'set -x'
   }
   stages {
-    stage('build'){
-      parameters {
-        def kepler_terraform = fileExists 'kepler-terraform'
-        booleanParam(name: 'KEPLER_TERRAFORM', defaultValue: kepler_terraform)
-      }
+    stage('clone') {
       when {
-        not {
-          params.KEPLER_TERRAFORM {
-            sh 'echo hiiiiiiiii'
-          }
+        expression {
+          return !fileExists('hi')
         }
       }
+      steps {
+        sh 'echo it work'
+      }
+    }
+    stage('build'){
       steps {
         sh 'echo building....'
         sh "echo ${env}"

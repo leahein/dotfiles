@@ -5,10 +5,11 @@
 #######################################################################
 # Startup
 #######################################################################
-
 # Bashrc Quotes
 # Dependencies: Figlet, Lolcat, jq
 cat quotes.json | jq ".[$(((RANDOM % 38 )+1))]" | lolcat
+
+# echo "<<< take a step back >>>" | lolcat
 
 
 #######################################################################
@@ -179,6 +180,7 @@ fi
 
 # Vault
 export VAULT_ADDR='https://mgmt-vault.keplergrp.com:8200'
+# export VAULT_ADDR='https://vault.keplergrp.com:8200/'
 export CA_CERTIFICATES_CRT='/usr/local/share/ca-certificates/vault-ca.crt'
 
 # Python Virtual Env
@@ -252,11 +254,18 @@ PS1_GIT="\[\$(git_color)\]\[$BOLD\]\$(git_branch)\[$BOLD\]\[$COLOR_RESET\]"
 PS1_END="\n\[$COLOR_GRAY_TEXT_BACKGROUND\]\t\[$COLOR_RED $BOLD\]♥ \[$COLOR_BLUE\]// \[$COLOR_RESET\]"
 PS1="${PS1_DIR}${PS1_GIT}${PS1_END}"
 
+# Python
 export PATH=$HOME/bin:$PATH:/opt/python/bin
 
+# Ruby
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
+# Neovim
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# SDK / Java
+export SDKMAN_DIR="/home/leaheinhorn/.sdkman"
+[[ -s "/home/leaheinhorn/.sdkman/bin/sdkman-init.sh" ]] && source "/home/leaheinhorn/.sdkman/bin/sdkman-init.sh"

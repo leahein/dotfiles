@@ -1,11 +1,10 @@
 pipeline {
   agent any
-  environment {
-  }
   stages {
     stage('build'){
-      sh 'echo building....'
-
+      steps {
+        sh 'echo building....'
+      }
     }
   }
   post {

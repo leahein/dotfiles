@@ -13,6 +13,10 @@ Plug 'justinmk/vim-sneak'
 Plug 'ckarnell/Antonys-macro-repeater'
 Plug 'wincent/ferret'
 Plug 'dhruvasagar/vim-table-mode'
+" Python Formatting Plugins
+Plug 'hynek/vim-python-pep8-indent'
+Plug 'tell-k/vim-autopep8'
+Plug 'bronson/vim-trailing-whitespace'
 " Language-specific highlighting
 Plug 'hdima/python-syntax'
 Plug 'rust-lang/rust.vim'
@@ -22,10 +26,8 @@ Plug 'derekwyatt/vim-scala'
 Plug 'jparise/vim-graphql'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'magicalbanana/sql-syntax-vim'
-" Python Formatting Plugins
-Plug 'hynek/vim-python-pep8-indent'
-Plug 'tell-k/vim-autopep8'
-Plug 'bronson/vim-trailing-whitespace'
+Plug 'martinda/Jenkinsfile-vim-syntax'
+Plug 'vim-scripts/groovyindent-unix'
 " Future Plugins to install:
   " Airline
   " TagBar

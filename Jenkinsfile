@@ -5,6 +5,17 @@ pipeline {
   }
   stages {
     stage('build'){
+      parameters {
+        def kepler_terraform = fileExists 'kepler-terraform'
+        booleanParam(name: 'KEPLER_TERRAFORM', defaultValue: kepler_terraform)
+      }
+      when {
+        not {
+          params.KEPLER_TERRAFORM {
+            sh 'echo hiiiiiiiii'
+          }
+        }
+      }
       steps {
         sh 'echo building....'
         sh "echo ${env}"

@@ -8,6 +8,17 @@ pipeline {
   }
   stages {
     stage('build'){
+
+      environment {
+          AWS_ACCESS_KEY_ID = sh(
+            returnStdout: true,
+            script: '''
+              echo hi > /dev/null 2>&1 && echo how are  \
+              "you" today
+            '''
+          )
+      }
+
       steps {
 
         /* get github key */
@@ -16,6 +27,7 @@ pipeline {
           set +x
         '''
         sh "echo ${env.GITBRANCH}"
+        sh "echo ${env.AWS_ACCESS_KEY_ID}"
 
         /* build */
         sh "TAG=${env.BUILD_NUMBER}"
@@ -38,9 +50,7 @@ pipeline {
         /* get vault credentials */
 
         sh '''
-          set +x
           export AWS_ACCESS_KEY_ID=$(echo hi)
-          set -x
         '''
 
       /* Get latest terraform configs and push the new */

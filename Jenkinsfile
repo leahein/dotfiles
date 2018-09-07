@@ -1,5 +1,11 @@
 pipeline {
   agent any
+  environment {
+    GITBRANCH = sh(
+      returnStdout: true,
+      script: "echo ${env.GIT_BRANCH.minus('origin/')}"
+    ).trim()
+  }
   stages {
     stage('build'){
       steps {
@@ -9,6 +15,7 @@ pipeline {
           set -x
           set +x
         '''
+        sh "echo ${env.GITBRANCH}"
 
         /* build */
         sh "TAG=${env.BUILD_NUMBER}"

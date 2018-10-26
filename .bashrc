@@ -7,9 +7,9 @@
 #######################################################################
 # Bashrc Quotes
 # Dependencies: Figlet, Lolcat, jq
-cat quotes.json | jq ".[$(((RANDOM % 38 )+1))]" | lolcat
+# cat quotes.json | jq ".[$(((RANDOM % 38 )+1))]" | lolcat
 
-# echo "<<< take a step back >>>" | lolcat
+echo "<<< take a step back >>>" | lolcat
 
 
 #######################################################################
@@ -143,8 +143,10 @@ alias kvpn='sudo openvpn \
     --down /etc/openvpn/update-resolv-conf \
     --script-security 2'
 
+# Docker Aliases
 # Clean docker dangling images
 alias docker-clean='docker rmi --force $(docker images -a --filter=dangling=true)'
+alias docker-stop='docker stop $(docker ps -a -q)'
 
 # CD Aliases
 alias code='cd ~/Development/code/'
@@ -179,9 +181,7 @@ fi
 ######################################################################
 
 # Vault
-export VAULT_ADDR='https://mgmt-vault.keplergrp.com:8200'
-# export VAULT_ADDR='https://vault.keplergrp.com:8200/'
-export CA_CERTIFICATES_CRT='/usr/local/share/ca-certificates/vault-ca.crt'
+export VAULT_ADDR='https://vault.keplergrp.com:8200/'
 
 # Python Virtual Env
 export PIPENV_VENV_IN_PROJECT='yes'

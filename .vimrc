@@ -28,6 +28,7 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'magicalbanana/sql-syntax-vim'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'vim-scripts/groovyindent-unix'
+Plug 'chr4/nginx.vim'
 " Future Plugins to install:
   " Airline
   " TagBar

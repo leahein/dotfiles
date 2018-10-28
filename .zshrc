@@ -51,16 +51,18 @@ unset color_prompt force_color_prompt
 # Keybindings ---------------------------------------------------------- {{{
 bindkey -v
 typeset -g -A key
+
 bindkey '^?' backward-delete-char
 bindkey '^[[5~' up-line-or-history
 bindkey '^[[3~' delete-char
 bindkey '^[[6~' down-line-or-history
-bindkey '^[[A' up-line-or-search
+bindkey '^P' up-line-or-search
 bindkey '^[[D' backward-char
-bindkey '^[[B' down-line-or-search
+bindkey '^N' down-line-or-search
 bindkey '^[[C' forward-char
-bindkey "^[[H" beginning-of-line
-bindkey "^[[F" end-of-line
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
+bindkey '^R' history-incremental-search-backward
 
 # }}}
 
@@ -127,36 +129,6 @@ raining() {
   fi
 }
 
-git_color() {
-  local git_status="$(git status 2> /dev/null)"
-  local branch="$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
-  local git_commit="$(git --no-pager diff --stat origin/${branch} 2>/dev/null)"
-  if [[ ! $git_status =~ "working tree clean" ]]; then
-    echo -e $COLOR_RED
-  elif [[ $git_status =~ "Your branch is ahead of" ]]; then
-    echo -e $COLOR_YELLOW
-  elif [[ $git_status =~ "nothing to commit" ]] && \
-    [[ ! -n $git_commit ]]; then
-  echo -e $COLOR_GREEN
-else
-  echo -e $COLOR_ORANGE
-fi
-}
-
-git_branch() {
-  local git_status="$(git status 2> /dev/null)"
-  local on_branch="On branch ([^${IFS}]*)"
-  local on_commit="HEAD detached at ([^${IFS}]*)"
-
-  if [[ $git_status =~ $on_branch ]]; then
-    local branch=${BASH_REMATCH[1]}
-    echo "($branch) "
-  elif [[ $git_status =~ $on_commit ]]; then
-    local commit=${BASH_REMATCH[1]}
-    echo "($commit) "
-  fi
-}
-
 # }}}
 
 # Completion :) ---------------------------------------------------------- {{{
@@ -169,30 +141,41 @@ compinit
 
 # Prompt  ---------------------------------------------------------- {{{
 
+
 autoload -U colors zsh/terminfo
 colors
 
+# Git Styling
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git hg
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:git*' formats "%{${fg[cyan]}%}[%{${fg[green]}%}%s%{${fg[cyan]}%}][%{${fg[blue]}%}%r/%S%%{${fg[cyan]}%}][%{${fg[blue]}%}%b%{${fg[yellow]}%}%m%u%c%{${fg[cyan]}%}]%{$reset_color%}"
+zstyle ':vcs_info:git*' formats "%{${fg[cyan]}%}[%{${fg[blue]}%}%s%{${fg[cyan]}%}][%{${fg[blue]}%}%r/%S%%{${fg[cyan]}%}][%{${fg[blue]}%}%b%{${fg[yellow]}%}%m%u%c%{${fg[cyan]}%}]%{$reset_color%}"
 
-PROMPT=${(j::Q)${(Z:Cn:):-$'
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+
+# enable functions to operate in PS1
+setopt PROMPT_SUBST
+
+PS1=${(j::Q)${(Z:Cn:):-$'
   %F{cyan}[%f
-  %(!.%F{red}%n%f.%F{green}%n%f)
+  %(!.%F{red}%n%f.%F{blue}%n%f)
   %F{cyan}@%f
-  %F{green}%M%f
+  %F{blue}%M%f
   %F{cyan}][%f
   %F{blue}%~%f
   %F{cyan}]%f
-  %(!.%F{red}%#%f.%F{green}%#%f)
+  %(!.%F{red}%#%f.)
+  \$vcs_info_msg_0_
+  "\n"
+  %F{white}%K{blue}%*%k%f
+  " "
+  %F{red}♥ %f
+  " "
+  %B %F{blue}//%f %b
   " "
 '}}
 
-
-# PS1_DIR="\[$BOLD\]\[$COLOR_BLUE\]\u@\h \[$BOLD\]\[$COLOR_PURPLE\][\w] "
-# PS1_GIT="\[\$(git_color)\]\[$BOLD\]\$(git_branch)\[$BOLD\]\[$COLOR_RESET\]"
-# PS1_END="\n\[$COLOR_GRAY_TEXT_BACKGROUND\]\t\[$COLOR_RED $BOLD\]♥ \[$COLOR_BLUE\]// \[$COLOR_RESET\]"
 
 # }}}
 

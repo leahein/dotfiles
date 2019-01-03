@@ -29,6 +29,7 @@ Plug 'magicalbanana/sql-syntax-vim'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'vim-scripts/groovyindent-unix'
 Plug 'chr4/nginx.vim'
+Plug 'cespare/vim-toml'
 " Future Plugins to install:
   " Airline
   " TagBar

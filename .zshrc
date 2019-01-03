@@ -4,6 +4,12 @@ echo "<<< take a step back >>>" | lolcat
 
 # }}}
 
+# Options --------------------------------------------------------------- {{{
+
+setopt AUTOCD
+
+# }}}
+
 # History {{{
 HISTFILE=~/.histfile
 HISTSIZE=5000
@@ -141,18 +147,88 @@ compinit
 
 # Prompt  ---------------------------------------------------------- {{{
 
-
-autoload -U colors zsh/terminfo
-colors
-
-# Git Styling
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git hg
+zstyle ':vcs_info:*' stagedstr '%B%F{yellow}'
+zstyle ':vcs_info:*' unstagedstr '%B%F{red}'
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:git*' formats "%{${fg[cyan]}%}[%{${fg[blue]}%}%s%{${fg[cyan]}%}][%{${fg[blue]}%}%r/%S%%{${fg[cyan]}%}][%{${fg[blue]}%}%b%{${fg[yellow]}%}%m%u%c%{${fg[cyan]}%}]%{$reset_color%}"
 
-precmd_vcs_info() { vcs_info }
-precmd_functions+=( precmd_vcs_info )
+
+zstyle ':vcs_info:*' actionformats \
+  '%F{magenta}[%F{green}%b%F{yellow}|%F{red}%a%F{magenta}]%f '
+zstyle ':vcs_info:*' formats \
+  '%F{cyan}[%F{green}%b%m%F{cyan}] %F{green}%c%F{yellow}%u%f'
+zstyle ':vcs_info:git*+set-message:*' hooks git-color git-st git-untracked git-unpushed
+zstyle ':vcs_info:*' enable git
+
+function +vi-git-color() {
+  local git_status="$(git status 2> /dev/null)"
+  local branch="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
+  local git_commit="$(git --no-pager diff --stat origin/${branch} 2>/dev/null)"
+  if [[ $git_status == "" ]]; then
+    hook_com[branch]="%B%F{cyan}${hook_com[branch]}"
+  elif [[ ! $git_status =~ "working tree clean" ]]; then
+    hook_com[branch]="%B%F{red}${hook_com[branch]}"
+  elif [[ $git_status =~ "Your branch is ahead of 'origin/$branch'" ]] || \
+    [[ -n $git_commit ]]; then
+    hook_com[branch]="%B%F{yellow}${hook_com[branch]}"
+  elif [[ $git_status =~ "nothing to commit" ]] && \
+    [[ ! -n $git_commit ]]; then
+    hook_com[branch]="%B%F{green}${hook_com[branch]}"
+  else
+    hook_com[branch]="%B%F{orange}${hook_com[branch]}"
+  fi
+}
+
+# Show untracked files
+function +vi-git-untracked() {
+  if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+  [[ $(git ls-files --others --exclude-standard | sed q | wc -l | tr -d ' ') == 1 ]] ||
+  [[ $(git status 2> /dev/null) == *"Untracked files"* ]]; then
+    hook_com[unstaged]+='%B%F{red}'
+  fi
+}
+
+# Show unpushed commits
+function +vi-git-unpushed() {
+  local git_status="$(git status 2> /dev/null)"
+  local branch="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
+  local git_diff_origin="$(git --no-pager diff --stat origin/${branch} 2>/dev/null)"
+  local git_unpushed_commit="$(git log --branches --not --remotes 2>/dev/null)"
+  if [[ -n $git_unpushed_commit ]]; then
+    hook_com[unstaged]+='%B%F{yellow}'
+  elif [[ $git_status =~ "working tree clean" ]]; then
+    if [[ -n $git_diff_origin ]] || \
+      [[ $git_status =~ "Your branch is ahead of 'origin/$branch'" ]]; then
+      hook_com[unstaged]+='%B%F{yellow}'
+    else
+      # do nothing
+    fi
+  else
+    # do nothing
+  fi
+}
+
+# Show remote ref name and number of commits ahead-of or behind
+function +vi-git-st() {
+  local ahead behind remote
+  local -a gitstatus
+
+  # Are we on a remote-tracking branch?
+  remote=${$(git rev-parse --verify ${hook_com[branch]}@{upstream} \
+    --symbolic-full-name 2>/dev/null)/refs\/remotes\/}
+
+  if [[ -n ${remote} ]] ; then
+    ahead=$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l)
+    (( $ahead )) && gitstatus+=( "${c3}+${ahead}${c2}" )
+
+    behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)
+    (( $behind )) && gitstatus+=( "${c4}-${behind}${c2}" )
+
+    hook_com[branch]="${hook_com[branch]} [${(j:/:)gitstatus}]"
+  fi
+}
+
+function precmd() { vcs_info }
 
 # enable functions to operate in PS1
 setopt PROMPT_SUBST
@@ -165,7 +241,6 @@ PS1=${(j::Q)${(Z:Cn:):-$'
   %F{cyan}][%f
   %F{blue}%~%f
   %F{cyan}]%f
-  %(!.%F{red}%#%f.)
   \$vcs_info_msg_0_
   "\n"
   %F{white}%K{blue}%*%k%f

@@ -17,6 +17,7 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'tell-k/vim-autopep8'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'w0rp/ale'
 " Language-specific highlighting
 Plug 'hdima/python-syntax'
 Plug 'rust-lang/rust.vim'
@@ -151,6 +152,12 @@ let g:NERDTreeIgnore=['venv$[[dir]]', '__pycache__$[[dir]]', 'node_modules$[[dir
 nnoremap <silent> <space>j :NERDTreeToggle %<CR>
 " }}}
 
+" Ale Linter {{{
+
+let g:ale_lint_on_text_changed = 0 " turn off automatic checks
+let g:ale_lint_on_save = 1 " check only on file save
+
+" }}}
 " Move from one window to another {{{
 " BuffersAndWindows:
 nnoremap <silent> <C-k> :wincmd k<CR>

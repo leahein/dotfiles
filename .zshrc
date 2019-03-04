@@ -8,6 +8,8 @@ echo "<<< take a step back >>>" | lolcat
 
 setopt AUTOCD
 
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
 # }}}
 
 # History {{{
@@ -94,10 +96,12 @@ alias code='cd ~/Development/code/'
 alias scripts='cd ~/Development/scripts/'
 alias kipcreate='cd ~/Development/code/KIP-Create-API/create_api'
 alias kipplaybook='cd ~/Development/code/KIP-Create-API/playbook_api'
+alias kipgql='cd ~/Development/code/KIP-Create-API/graphql_api'
 
 alias chrome='google-chrome-stable'
 
 alias vim='nvim'
+alias cat='bat'
 
 # Add "alert" for long running commands.  Use like so: sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -109,7 +113,7 @@ alias va='source venv/bin/activate'
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
-# Alias  VPN
+# Alias  VPNs
 alias kvpn='sudo openvpn \
     --config ~/openvpn/leaheinhorn.conf \
     --up /etc/openvpn/update-resolv-conf \
@@ -142,6 +146,15 @@ raining() {
 zmodload zsh/complist
 autoload -Uz compinit
 compinit
+
+# }}}
+
+
+# Plugins :) ---------------------------------------------------------- {{{
+
+source ~/.zplug/init.zsh
+
+zplug "zsh-users/zsh-syntax-highlighting"
 
 # }}}
 

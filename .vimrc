@@ -13,6 +13,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'ckarnell/Antonys-macro-repeater'
 Plug 'wincent/ferret'
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'davidhalter/jedi-vim'
 " Python Formatting Plugins
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'tell-k/vim-autopep8'
@@ -158,6 +159,14 @@ let g:ale_lint_on_text_changed = 0 " turn off automatic checks
 let g:ale_lint_on_save = 1 " check only on file save
 
 " }}}
+"
+" Jedi {{{
+
+let g:jedi#auto_initialization = 0
+
+" }}}
+
+
 " Move from one window to another {{{
 " BuffersAndWindows:
 nnoremap <silent> <C-k> :wincmd k<CR>

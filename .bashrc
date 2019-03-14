@@ -152,7 +152,7 @@ alias docker-stop='docker stop $(docker ps -a -q)'
 alias code='cd ~/Development/code/'
 alias scripts='cd ~/Development/scripts/'
 alias kipcreate='cd ~/Development/code/KIP-Create-API/create_api'
-alias kipplaybook='cd ~/Development/code/KIP-Create-API/playbook_api'
+alias kipgql='cd ~/Development/code/KIP-Create-API/graphql_api'
 
 alias chrome='google-chrome-stable'
 
@@ -253,6 +253,7 @@ PS1_DIR="\[$BOLD\]\[$COLOR_BLUE\]\u@\h \[$BOLD\]\[$COLOR_PURPLE\][\w] "
 PS1_GIT="\[\$(git_color)\]\[$BOLD\]\$(git_branch)\[$BOLD\]\[$COLOR_RESET\]"
 PS1_END="\n\[$COLOR_GRAY_TEXT_BACKGROUND\]\t\[$COLOR_RED $BOLD\]♥ \[$COLOR_BLUE\]// \[$COLOR_RESET\]"
 PS1="${PS1_DIR}${PS1_GIT}${PS1_END}"
+
 
 # Python
 export PATH=$HOME/bin:$PATH:/opt/python/bin

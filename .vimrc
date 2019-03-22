@@ -87,6 +87,8 @@ vnoremap <silent> # :<C-U>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 vnoremap <expr> // 'y/\V'.escape(@",'\').'<CR>'
 
+" Clear highlighting after find with esc
+nnoremap <silent> <esc> :noh<return><esc>
 " }}}
 
 " fix misspellings and abbreviations of commands {{{

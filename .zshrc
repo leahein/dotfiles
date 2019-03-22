@@ -28,6 +28,12 @@ export PIPENV_VENV_IN_PROJECT='yes'
 
 export VISUAL=nvim
 export EDITOR="nvim"
+
+
+# man
+export MANWIDTH=79
+export MANPAGER="nvim -c 'set ft=man' -"
+
 # }}}
 
 # Colors --------------------------------------------------------------- {{{
@@ -148,7 +154,6 @@ autoload -Uz compinit
 compinit
 
 # }}}
-
 
 # Plugins :) ---------------------------------------------------------- {{{
 

@@ -4,6 +4,11 @@ echo "<<< take a step back >>>" | lolcat
 
 # }}}
 
+# Source files --------------------------------------------------------------- {{{
+
+source ~/.sensitive
+
+# }}}
 # Options --------------------------------------------------------------- {{{
 
 setopt AUTOCD
@@ -119,13 +124,6 @@ alias va='source venv/bin/activate'
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
-# Alias  VPNs
-alias kvpn='sudo openvpn \
-    --config ~/openvpn/leaheinhorn.conf \
-    --up /etc/openvpn/update-resolv-conf \
-    --down /etc/openvpn/update-resolv-conf \
-    --script-security 2'
-
 # Docker Aliases
 # Clean docker dangling images
 alias docker-clean='docker rmi --force $(docker images -a --filter=dangling=true)'
@@ -159,6 +157,7 @@ compinit
 
 source ~/.zplug/init.zsh
 
+zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-syntax-highlighting"
 
 # }}}

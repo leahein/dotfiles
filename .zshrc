@@ -158,8 +158,8 @@ compinit
 source ~/.zplug/init.zsh
 
 zplug "zsh-users/zsh-syntax-highlighting"
-zplug "zsh-users/zsh-syntax-highlighting"
 
+zplug load
 # }}}
 
 # Prompt  ---------------------------------------------------------- {{{
@@ -281,9 +281,6 @@ eval "$(pyenv virtualenv-init -)"
 # Python
 export PATH=$HOME/bin:$PATH:/opt/python/bin
 
-# Ruby
-# Add RVM to PATH for scripting.
-export PATH="$PATH:$HOME/.rvm/bin"
 
 # Neovim
 export NVM_DIR="$HOME/.nvm"

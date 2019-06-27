@@ -9,6 +9,7 @@ echo "<<< take a step back >>>" | lolcat
 source ~/.sensitive
 
 # }}}
+
 # Options --------------------------------------------------------------- {{{
 
 setopt AUTOCD
@@ -158,6 +159,7 @@ compinit
 source ~/.zplug/init.zsh
 
 zplug "zsh-users/zsh-syntax-highlighting"
+zplug "paulirish/git-open", as:plugin
 
 zplug load
 # }}}
@@ -274,7 +276,7 @@ PS1=${(j::Q)${(Z:Cn:):-$'
 # Path  ---------------------------------------------------------- {{{
 
 # pyenv
-export PATH="/home/leaheinhorn/.pyenv/bin:$PATH"
+export PATH="/home/leah/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
@@ -288,7 +290,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # SDK / Java
-export SDKMAN_DIR="/home/leaheinhorn/.sdkman"
-[[ -s "/home/leaheinhorn/.sdkman/bin/sdkman-init.sh" ]] && source "/home/leaheinhorn/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="/home/leah/.sdkman"
+[[ -s "/home/leah/.sdkman/bin/sdkman-init.sh" ]] && source "/home/leah/.sdkman/bin/sdkman-init.sh"
 
 # }}}

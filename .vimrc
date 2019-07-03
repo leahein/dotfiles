@@ -123,7 +123,7 @@ cabbrev bs sbuffer
 
 
 " }}}
-"
+
 " Folding settings: {{{
 augroup fold_settings
   autocmd!
@@ -161,13 +161,14 @@ let g:ale_lint_on_text_changed = 0 " turn off automatic checks
 let g:ale_lint_on_save = 1 " check only on file save
 
 " }}}
-"
+
 " Jedi {{{
 
-let g:jedi#auto_initialization = 0
+let g:jedi#popup_on_dot = 0
+let g:jedi#show_call_signatures = 0
+let g:jedi#auto_vim_configuration = 0
 
 " }}}
-
 
 " Move from one window to another {{{
 " BuffersAndWindows:

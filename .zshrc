@@ -1,6 +1,6 @@
 # Startup --------------------------------------------------------------- {{{
 
-echo "<<< take a step back >>>" | lolcat
+cat ~/dev-tips-script.json | jq ".[$(shuf -i 0-101 -n 1)]" | lolcat
 
 # }}}
 

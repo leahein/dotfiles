@@ -1,3 +1,4 @@
+// Content by Emma Wedekind: https://dev.to/emmawedekind/101-tips-for-being-a-great-programmer-human-36nl
 1. Get good at Googling: Being a programmer is all about learning how to search for the answers to your questions. By learning to Google things effectively, you'll save a lot of development time.
 2. Under promise and over deliver: It's better to let your team know a task will take three weeks and deliver in two than the other way around. By under promising and over delivering, you'll build trust.
 3. Be nice to your designers; they're your friends: Designers provide solutions to user pain points. Learn from them and work cohesively to build effective products.

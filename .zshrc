@@ -1,6 +1,6 @@
 # Startup --------------------------------------------------------------- {{{
 
-cat ~/dev-tips-script.json | jq ".[$(shuf -i 0-101 -n 1)]" | lolcat
+cat ~/dev-tips.json | jq ".[$(shuf -i 0-101 -n 1)]" | lolcat
 
 # }}}
 

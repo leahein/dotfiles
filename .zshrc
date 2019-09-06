@@ -130,6 +130,10 @@ alias pbpaste='xclip -selection clipboard -o'
 alias docker-clean='docker rmi --force $(docker images -a --filter=dangling=true)'
 alias docker-stop='docker stop $(docker ps -a -q)'
 
+# VPN
+alias aws-vpn='nmcli c up aws'
+alias aws-vpnd='nmcli c down aws'
+
 #  }}}
 
 # Functions ---------------------------------------------------------- {{{

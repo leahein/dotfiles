@@ -20,10 +20,12 @@ Plug 'tell-k/vim-autopep8'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'w0rp/ale'
 " Language-specific highlighting
+Plug 'tpope/vim-markdown'
 Plug 'hdima/python-syntax'
 Plug 'rust-lang/rust.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'evanleck/vim-svelte'
 Plug 'derekwyatt/vim-scala'
 Plug 'jparise/vim-graphql'
 Plug 'ekalinin/Dockerfile.vim'
@@ -54,6 +56,7 @@ syntax on
 let mapleader = ","
 let maplocalleader = "\\"
 let python_highlight_all=1
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 set number
 set tabstop=2
 set autoindent

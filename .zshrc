@@ -168,6 +168,13 @@ zplug "paulirish/git-open", as:plugin
 zplug load
 # }}}
 
+# Scripts ---------------------------------------------------------- {{{
+
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
+
+# }}}
+
 # Prompt  ---------------------------------------------------------- {{{
 
 autoload -Uz vcs_info

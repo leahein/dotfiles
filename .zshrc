@@ -1,6 +1,6 @@
 # Startup --------------------------------------------------------------- {{{
 
-shuf -n 1 ~/dev-tips.txt | cowsay -f tux | lolcat
+shuf -n 1 ~/dev-tips.txt | cowsay -f tux
 
 # }}}
 

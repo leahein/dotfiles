@@ -79,8 +79,6 @@ set nocompatible " Turn off complete vi compatibility
 " Mappings {{{
 noremap ii o<esc>
 noremap <c-c> ^i# <esc>
-" noremap <C-S-C> "+yy
-" noremap <C-S-V> "+p
 inoremap <c-z> <esc>ui
 
 " Mapping for finding by entire Word
@@ -118,12 +116,6 @@ cabbrev Vs vs
 
 " move tab to number
 cabbrev t tabn
-
-" close help menu
-cabbrev hc helpclose
-
-" echo current file path
-cabbrev pwd echo expand('%:p')
 
 " abbreviate creating tab, vertical, and horizontal buffer splits
 cabbrev bt tab sb

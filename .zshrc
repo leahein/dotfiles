@@ -286,11 +286,6 @@ PS1=${(j::Q)${(Z:Cn:):-$'
 
 # Path  ---------------------------------------------------------- {{{
 
-# pyenv
-export PATH="/home/leah/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
 # Python
 export PATH=$HOME/bin:$PATH:/opt/python/bin
 

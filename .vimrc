@@ -14,11 +14,13 @@ Plug 'ckarnell/Antonys-macro-repeater'
 Plug 'wincent/ferret'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'davidhalter/jedi-vim'
+Plug 'w0rp/ale'
+
 " Python Formatting Plugins
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'tell-k/vim-autopep8'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'w0rp/ale'
+
 " Language-specific highlighting
 Plug 'tpope/vim-markdown'
 Plug 'hdima/python-syntax'
@@ -123,7 +125,6 @@ cabbrev pwd echo expand('%:p')
 cabbrev bt tab sb
 cabbrev bv vert sb
 cabbrev bs sbuffer
-
 
 " }}}
 

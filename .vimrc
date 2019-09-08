@@ -21,6 +21,10 @@ Plug 'hynek/vim-python-pep8-indent'
 Plug 'tell-k/vim-autopep8'
 Plug 'bronson/vim-trailing-whitespace'
 
+" JS Formatting
+Plug 'Valloric/MatchTagAlways'
+Plug 'tpope/vim-ragtag'
+
 " Language-specific highlighting
 Plug 'tpope/vim-markdown'
 Plug 'hdima/python-syntax'
@@ -126,6 +130,7 @@ cabbrev bt tab sb
 cabbrev bv vert sb
 cabbrev bs sbuffer
 
+
 " }}}
 
 " Folding settings: {{{
@@ -171,6 +176,30 @@ let g:ale_lint_on_save = 1 " check only on file save
 let g:jedi#popup_on_dot = 0
 let g:jedi#show_call_signatures = 0
 let g:jedi#auto_vim_configuration = 0
+
+" }}}
+
+" MatchTag {{{
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \ 'javascript' : 1,
+    \}
+" }}}
+
+" RagTag {{{
+
+" Load mappings on every filetype
+let g:ragtag_global_maps = 1
+
+" Additional file type
+augroup ragtag_config
+  autocmd!
+  autocmd FileType javascript call RagtagInit()
+  autocmd FileType svelte call RagtagInit()
+augroup end
 
 " }}}
 

@@ -264,6 +264,7 @@ function precmd() { vcs_info }
 setopt PROMPT_SUBST
 
 PS1=${(j::Q)${(Z:Cn:):-$'
+  %F{white}%K{blue}%*%k%f
   %F{cyan}[%f
   %(!.%F{red}%n%f.%F{blue}%n%f)
   %F{cyan}@%f
@@ -273,10 +274,7 @@ PS1=${(j::Q)${(Z:Cn:):-$'
   %F{cyan}]%f
   \$vcs_info_msg_0_
   "\n"
-  %F{white}%K{blue}%*%k%f
-  " "
-  %F{red}♥ %f
-  " "
+  %F{red}💙%f
   %B %F{blue}//%f %b
   " "
 '}}

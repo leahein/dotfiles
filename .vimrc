@@ -31,6 +31,8 @@ Plug 'hdima/python-syntax'
 Plug 'rust-lang/rust.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'leafgarland/typescript-vim'
 Plug 'evanleck/vim-svelte'
 Plug 'derekwyatt/vim-scala'
 Plug 'jparise/vim-graphql'
@@ -216,6 +218,13 @@ nnoremap gp :bp<CR>
 set grepprg=git\ grep\ -n\ $*
 let g:EasyGrepCommand = 1 " use grep, NOT vimgrep
 let g:EasyGrepJumpToMatch = 0 " Do not jump to the first match
+" }}}
+
+" Typescript config {{{
+augroup tsx_recognition
+ autocmd!
+ autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+augroup END
 " }}}
 
 " VisualSearch - use * and # in visual mode {{{

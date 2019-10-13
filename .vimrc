@@ -170,6 +170,9 @@ let g:jedi#popup_on_dot = 0
 let g:jedi#show_call_signatures = 0
 let g:jedi#auto_vim_configuration = 0
 
+augroup jedi_config_le
+  autocmd FileType python setlocal completeopt-=preview "No docstring window in completion
+augroup END
 " }}}
 
 " RagTag {{{
@@ -182,7 +185,7 @@ augroup ragtag_config
   autocmd!
   autocmd FileType javascript call RagtagInit()
   autocmd FileType svelte call RagtagInit()
-augroup end
+augroup END
 
 " }}}
 

@@ -41,13 +41,17 @@ Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'vim-scripts/groovyindent-unix'
 Plug 'chr4/nginx.vim'
 Plug 'cespare/vim-toml'
+
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
 " Future Plugins to install:
   " Airline
   " TagBar
-  " AutoComplete
   " Quickfix, use shortcuts
   " WinResizer
-  " OmniCompletion
 call plug#end()
 " }}}
 
@@ -143,6 +147,16 @@ nnoremap <silent> <Plug>NewLineComma f,wi<CR><Esc>
       \:call repeat#set("\<Plug>NewLineComma")<CR>
 nmap <leader><CR> <Plug>NewLineComma
 "}}}
+
+" Language Server Client {{{
+
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': [''],
+    \ 'javascript.jsx': [''],
+    \ 'python': [''],
+    \ }
+
+" }}}
 
 " Nerd Tree {{{
 let g:NERDTreeMapOpenInTab = '<C-t>'

@@ -21,8 +21,7 @@ Plug 'hynek/vim-python-pep8-indent'
 Plug 'tell-k/vim-autopep8'
 Plug 'bronson/vim-trailing-whitespace'
 
-" JS Formatting
-Plug 'Valloric/MatchTagAlways'
+" JS Formatting Plugins
 Plug 'tpope/vim-ragtag'
 
 " Language-specific highlighting
@@ -171,16 +170,6 @@ let g:jedi#popup_on_dot = 0
 let g:jedi#show_call_signatures = 0
 let g:jedi#auto_vim_configuration = 0
 
-" }}}
-
-" MatchTag {{{
-let g:mta_filetypes = {
-    \ 'html' : 1,
-    \ 'xhtml' : 1,
-    \ 'xml' : 1,
-    \ 'jinja' : 1,
-    \ 'javascript' : 1,
-    \}
 " }}}
 
 " RagTag {{{

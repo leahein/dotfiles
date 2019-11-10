@@ -162,22 +162,20 @@ raining() {
 
 # }}}
 
+# Syntax Highlighting :) ------------------------------------------------- {{{
+
+ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=039,underline
+ZSH_HIGHLIGHT_STYLES[precommand]=fg=039,underline
+ZSH_HIGHLIGHT_STYLES[arg0]=fg=039
+
+# }}}
+
 # Completion :) ---------------------------------------------------------- {{{
 
 zmodload zsh/complist
 autoload -Uz compinit
 compinit
 
-# }}}
-
-# Plugins :) ---------------------------------------------------------- {{{
-
-source ~/.zplug/init.zsh
-
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "paulirish/git-open", as:plugin
-
-zplug load
 # }}}
 
 # Scripts ---------------------------------------------------------- {{{

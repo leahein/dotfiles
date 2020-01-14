@@ -42,13 +42,18 @@ Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'vim-scripts/groovyindent-unix'
 Plug 'chr4/nginx.vim'
 Plug 'cespare/vim-toml'
+
+" Language Server
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 " Future Plugins to install:
   " Airline
   " TagBar
   " AutoComplete
   " Quickfix, use shortcuts
   " WinResizer
-  " OmniCompletion
 call plug#end()
 " }}}
 
@@ -143,6 +148,32 @@ augroup END
 nnoremap <silent> <Plug>NewLineComma f,wi<CR><Esc>
       \:call repeat#set("\<Plug>NewLineComma")<CR>
 nmap <leader><CR> <Plug>NewLineComma
+"}}}
+
+" Language Client {{{
+
+let g:LanguageClient_serverCommands = {
+      \ 'typescript': ['npx', 'typescript-language-server', '--stdio'],
+      \ 'typescript.tsx': ['npx', 'typescript-language-server', '--stdio'],
+      \ }
+"       \ 'python': ['jedi-language-server'],
+let g:LanguageClient_autoStart = 1
+let g:LanguageClient_hoverPreview = 'Auto'
+let g:LanguageClient_diagnosticsEnable = 0
+
+function! ConfigureLanguageClient()
+  if has_key(g:LanguageClient_serverCommands, &filetype)
+    nnoremap <buffer> <leader>d :call LanguageClient#textDocument_definition()<CR>
+    nnoremap <buffer> <leader>sd :call LanguageClient#textDocument_hover()<CR>
+    nnoremap <buffer> <leader>sr :call LanguageClient#textDocument_rename()<CR>
+    nnoremap <buffer> <leader>su :call LanguageClient#textDocument_references()<CR>
+    setlocal omnifunc=LanguageClient#complete
+  endif
+endfunction
+
+augroup language_servers
+  autocmd FileType * call ConfigureLanguageClient()
+augroup END
 "}}}
 
 " Nerd Tree {{{

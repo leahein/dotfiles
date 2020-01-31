@@ -24,8 +24,13 @@ Plug 'bronson/vim-trailing-whitespace'
 " JS Formatting Plugins
 Plug 'tpope/vim-ragtag'
 
-" Language-specific highlighting
+
+" Markdown Plugins
 Plug 'tpope/vim-markdown'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+"
+" Language-specific highlighting
 Plug 'hdima/python-syntax'
 Plug 'rust-lang/rust.vim'
 Plug 'pangloss/vim-javascript'
@@ -315,6 +320,25 @@ augroup fix_whitespace_save
   let blacklist = ['markdown']
   autocmd BufWritePre * if index(blacklist, &ft) < 0 | execute ':FixWhitespace'
 augroup END
+" }}}
+
+
+" Writing formatting {{{
+augroup fix_whitespace_save
+  autocmd!
+  autocmd FileType markdown,rst,text,gitcommit
+    \ setlocal wrap linebreak nolist
+augroup END
+
+nnoremap <expr> k
+  \ v:count == 0 ? 'gk' : 'k'
+vnoremap <expr> k
+  \ v:count == 0 ? 'gk' : 'k'
+nnoremap <expr> j
+  \ v:count == 0 ? 'gj' : 'j'
+vnoremap <expr> j
+  \ v:count == 0 ? 'gj' : 'j'
+
 " }}}
 
 " Javascript settings {{{

@@ -326,7 +326,7 @@ augroup END
 
 
 " Writing formatting {{{
-augroup fix_whitespace_save
+augroup write_formatting
   autocmd!
   autocmd FileType markdown,rst,text,gitcommit
     \ setlocal wrap linebreak nolist

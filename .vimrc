@@ -134,6 +134,8 @@ cabbrev bt tab sb
 cabbrev bv vert sb
 cabbrev bs sbuffer
 
+" jsdoc abbreviation
+iabbrev jsd /** */
 
 " }}}
 

@@ -29,7 +29,7 @@ Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-markdown'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-"
+
 " Language-specific highlighting
 Plug 'hdima/python-syntax'
 Plug 'rust-lang/rust.vim'
@@ -48,19 +48,22 @@ Plug 'vim-scripts/groovyindent-unix'
 Plug 'chr4/nginx.vim'
 Plug 'cespare/vim-toml'
 
-" Language Server
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-" Future Plugins to install:
-  " Airline
-  " TagBar
-  " AutoComplete
-  " Quickfix, use shortcuts
-  " WinResizer
+" CoC intellisense, the future
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+for coc_plugin in [
+      \ 'neoclide/coc-html',
+      \ 'neoclide/coc-css',
+      \ 'neoclide/coc-json',
+      \ 'neoclide/coc-python',
+      \ 'neoclide/coc-tsserver',
+      \ 'neoclide/coc-yaml',
+      \ 'iamcco/coc-vimlsp',
+      \ ]
+  Plug coc_plugin, { 'do': 'yarn install --frozen-lockfile' }
+endfor
+
 call plug#end()
-" }}}
+"}}}
 
 " Color Scheme Settings {{{
 colorscheme molokai
@@ -157,31 +160,12 @@ nnoremap <silent> <Plug>NewLineComma f,wi<CR><Esc>
 nmap <leader><CR> <Plug>NewLineComma
 "}}}
 
-" Language Client {{{
+" CoC Intellisense {{{
+nmap <silent> <leader>d <Plug>(coc-definition)
+inoremap <silent><expr> <c-space> coc#refresh()
+nnoremap <silent> <C-K> :call <SID>show_documentation()<CR>
 
-let g:LanguageClient_serverCommands = {
-      \ 'typescript': ['npx', 'typescript-language-server', '--stdio'],
-      \ 'typescript.tsx': ['npx', 'typescript-language-server', '--stdio'],
-      \ }
-"       \ 'python': ['jedi-language-server'],
-let g:LanguageClient_autoStart = 1
-let g:LanguageClient_hoverPreview = 'Auto'
-let g:LanguageClient_diagnosticsEnable = 0
-
-function! ConfigureLanguageClient()
-  if has_key(g:LanguageClient_serverCommands, &filetype)
-    nnoremap <buffer> <leader>d :call LanguageClient#textDocument_definition()<CR>
-    nnoremap <buffer> <leader>sd :call LanguageClient#textDocument_hover()<CR>
-    nnoremap <buffer> <leader>sr :call LanguageClient#textDocument_rename()<CR>
-    nnoremap <buffer> <leader>su :call LanguageClient#textDocument_references()<CR>
-    setlocal omnifunc=LanguageClient#complete
-  endif
-endfunction
-
-augroup language_servers
-  autocmd FileType * call ConfigureLanguageClient()
-augroup END
-"}}}
+" }}}
 
 " Nerd Tree {{{
 let g:NERDTreeMapOpenInTab = '<C-t>'
@@ -205,13 +189,13 @@ let g:ale_lint_on_save = 1 " check only on file save
 
 " Jedi {{{
 
-let g:jedi#popup_on_dot = 0
-let g:jedi#show_call_signatures = 0
-let g:jedi#auto_vim_configuration = 0
+" let g:jedi#popup_on_dot = 0
+" let g:jedi#show_call_signatures = 0
+" let g:jedi#auto_vim_configuration = 0
 
-augroup jedi_config_le
-  autocmd FileType python setlocal completeopt-=preview "No docstring window in completion
-augroup END
+" augroup jedi_config_le
+"   autocmd FileType python setlocal completeopt-=preview "No docstring window in completion
+" augroup END
 " }}}
 
 " RagTag {{{
@@ -323,7 +307,6 @@ augroup fix_whitespace_save
   autocmd BufWritePre * if index(blacklist, &ft) < 0 | execute ':FixWhitespace'
 augroup END
 " }}}
-
 
 " Writing formatting {{{
 augroup write_formatting

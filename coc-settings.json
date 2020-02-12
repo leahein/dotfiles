@@ -1,0 +1,5 @@
+{
+  "suggest.minTriggerInputLength": 3,
+  "suggest.noselect": false,
+  "tsserver.enableJavascript": false
+}

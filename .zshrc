@@ -139,6 +139,18 @@ alias pbpaste='xclip -selection clipboard -o'
 
 # Docker Aliases
 # Clean docker dangling images
+function drmi_old() {
+  while true; do
+   read yn\?"Do you wish to remove docker images older than $(date +'%Y-%m-%dT%H:%M:%S' --date='-'$1' days')?"
+   case $yn in
+     [Yy]* ) break;;
+     [Nn]* ) return;;
+     * ) echo "Please answer yes or no.";;
+   esac
+  done
+  docker image prune -a --filter "until=$(date +'%Y-%m-%dT%H:%M:%S' --date='-'$1' days')"
+}
+
 alias docker-clean='docker rmi --force $(docker images -a --filter=dangling=true)'
 alias docker-stop='docker stop $(docker ps -a -q)'
 

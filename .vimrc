@@ -13,7 +13,6 @@ Plug 'justinmk/vim-sneak'
 Plug 'ckarnell/Antonys-macro-repeater'
 Plug 'wincent/ferret'
 Plug 'dhruvasagar/vim-table-mode'
-Plug 'davidhalter/jedi-vim'
 Plug 'w0rp/ale'
 
 " Python Formatting Plugins
@@ -185,17 +184,6 @@ nnoremap <silent> <space>j :NERDTreeToggle %<CR>
 let g:ale_lint_on_text_changed = 0 " turn off automatic checks
 let g:ale_lint_on_save = 1 " check only on file save
 
-" }}}
-
-" Jedi {{{
-
-" let g:jedi#popup_on_dot = 0
-" let g:jedi#show_call_signatures = 0
-" let g:jedi#auto_vim_configuration = 0
-
-" augroup jedi_config_le
-"   autocmd FileType python setlocal completeopt-=preview "No docstring window in completion
-" augroup END
 " }}}
 
 " RagTag {{{

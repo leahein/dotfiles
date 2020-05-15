@@ -140,6 +140,12 @@ cabbrev bs sbuffer
 " jsdoc abbreviation
 iabbrev jsd /** */
 
+" jsdoc multiline abbreviation
+iabbrev jsdm 
+  \<CR>/**
+  \<CR>*
+  \<CR>*/
+
 " }}}
 
 " Folding settings: {{{
@@ -292,7 +298,7 @@ augroup END
 
 " vim-trailing-whitespace {{{
 augroup fix_whitespace_save
-  let blacklist = ['markdown']
+  let blacklist = ['markdown', 'vim']
   autocmd BufWritePre * if index(blacklist, &ft) < 0 | execute ':FixWhitespace'
 augroup END
 " }}}

@@ -50,13 +50,14 @@ Plug 'cespare/vim-toml'
 " CoC intellisense, the future
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 for coc_plugin in [
+      \ 'pappasam/coc-jedi',
       \ 'neoclide/coc-html',
       \ 'neoclide/coc-css',
       \ 'neoclide/coc-json',
-      \ 'neoclide/coc-python',
       \ 'neoclide/coc-tsserver',
       \ 'neoclide/coc-yaml',
       \ 'iamcco/coc-vimlsp',
+      \'josa42/coc-docker',
       \ ]
   Plug coc_plugin, { 'do': 'yarn install --frozen-lockfile' }
 endfor

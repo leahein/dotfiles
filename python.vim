@@ -68,8 +68,9 @@ endif
 "
 syn keyword pythonConstant	False None True
 syn keyword pythonStatement	as assert break continue del exec global
-syn keyword pythonStatement	lambda nonlocal pass print return with yield
+syn keyword pythonStatement	await lambda nonlocal pass print return with yield
 syn keyword pythonStatement	def nextgroup=pythonFunction skipwhite
+syn keyword pythonStatement	async nextgroup=pythonFunction skipwhite
 syn keyword pythonStatement class nextgroup=pythonClass skipwhite
 syn keyword pythonConditional	elif else if
 syn keyword pythonRepeat	for while

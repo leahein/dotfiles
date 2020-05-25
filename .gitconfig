@@ -1,0 +1,10 @@
+[user]
+  email = leinhorn@keplergrp.com
+[push]
+  default = current
+[alias]
+  co = checkout
+  c = commit
+  a = add
+  s = status
+  d = diff

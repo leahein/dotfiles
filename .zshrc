@@ -100,6 +100,8 @@ bindkey '^R' history-incremental-search-backward
 
 # Aliases ---------------------------------------------------------- {{{
 
+alias c='clear'
+
 # ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -118,12 +120,11 @@ fi
 # cd Aliases
 alias code='cd ~/Development/code/'
 alias scripts='cd ~/Development/scripts/'
-alias kipcreate='cd ~/Development/code/KIP-Create-API/create_api'
-alias kipplaybook='cd ~/Development/code/KIP-Create-API/playbook_api'
-alias kipgql='cd ~/Development/code/KIP-Create-API/graphql_api'
+alias rocket='cd ~/Development/code/KIP-Rocket'
 
 alias chrome='google-chrome-stable'
 
+# Alias programs to its superior alternative
 alias vim='nvim'
 alias cat='bat'
 

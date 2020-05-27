@@ -46,6 +46,7 @@ Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'vim-scripts/groovyindent-unix'
 Plug 'chr4/nginx.vim'
 Plug 'cespare/vim-toml'
+Plug 'elixir-editors/vim-elixir'
 
 " CoC intellisense, the future
 Plug 'neoclide/coc.nvim', {'branch': 'release'}

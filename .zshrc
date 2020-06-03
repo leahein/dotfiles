@@ -183,20 +183,6 @@ ZSH_HIGHLIGHT_STYLES[arg0]=fg=039
 
 # }}}
 
-# Completion :) ---------------------------------------------------------- {{{
-
-zmodload zsh/complist
-autoload -Uz compinit
-compinit
-
-# }}}
-
-# Scripts ---------------------------------------------------------- {{{
-
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
-
-# }}}
 
 # Prompt  ---------------------------------------------------------- {{{
 
@@ -213,6 +199,19 @@ function precmd() { vcs_info }
 
 # }}}
 
+# Completion :) ---------------------------------------------------------- {{{
+
+# Add ASDF completion
+fpath=(${ASDF_DIR}/completions $fpath)
+
+zmodload zsh/complist
+
+# initialise completions
+autoload -Uz compinit && compinit
+
+# }}}
+
+
 # Path  ---------------------------------------------------------- {{{
 
 # Python
@@ -224,8 +223,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# SDK / Java
-export SDKMAN_DIR="/home/leah/.sdkman"
-[[ -s "/home/leah/.sdkman/bin/sdkman-init.sh" ]] && source "/home/leah/.sdkman/bin/sdkman-init.sh"
+# ASDF
+. $HOME/.asdf/asdf.sh
 
 # }}}

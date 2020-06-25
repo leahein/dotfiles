@@ -1,6 +1,7 @@
 {
   "suggest.minTriggerInputLength": 3,
   "suggest.noselect": false,
-  "tsserver.enableJavascript": false,
-  "jedi.enable": true
+  "suggest.floatEnable": false,
+  "jedi.enable": true,
+  "tsserver.enableJavascript": false
 }

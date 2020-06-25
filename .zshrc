@@ -2,6 +2,7 @@
 
 shuf -n 1 ~/dev-tips.txt | cowsay -f tux
 
+
 # }}}
 
 # Source files --------------------------------------------------------------- {{{
@@ -183,7 +184,6 @@ ZSH_HIGHLIGHT_STYLES[arg0]=fg=039
 
 # }}}
 
-
 # Prompt  ---------------------------------------------------------- {{{
 
 zstyle :prompt:pure:path color 039
@@ -201,16 +201,17 @@ function precmd() { vcs_info }
 
 # Completion :) ---------------------------------------------------------- {{{
 
-# Add ASDF completion
-fpath=(${ASDF_DIR}/completions $fpath)
-
 zmodload zsh/complist
 
+# Add ASDF completion
+fpath=(${ASDF_DIR}/completions $fpath)
+fpath=(~/.zsh/completion $fpath)
+
 # initialise completions
-autoload -Uz compinit && compinit
+autoload -Uz compinit
+compinit
 
 # }}}
-
 
 # Path  ---------------------------------------------------------- {{{
 

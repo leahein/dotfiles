@@ -1,7 +1,12 @@
 [user]
   email = leinhorn@keplergrp.com
+
+[core]
+  pager = delta
+
 [push]
   default = current
+
 [alias]
   co = checkout
   c = commit
@@ -9,3 +14,11 @@
   s = status
   d = diff
   b = branch
+
+[delta]
+  plus-style =  syntax "#214f11" # set background color
+  syntax-theme = Monokai Extended
+  dark = true
+
+[interactive]
+  diffFilter = delta --color-only

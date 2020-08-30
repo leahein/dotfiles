@@ -14,6 +14,7 @@ Plug 'ckarnell/Antonys-macro-repeater'
 Plug 'wincent/ferret'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'w0rp/ale'
+Plug 'ryanoasis/vim-devicons'
 
 " Python Formatting Plugins
 Plug 'hynek/vim-python-pep8-indent'

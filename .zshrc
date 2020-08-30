@@ -1,7 +1,7 @@
 # Startup --------------------------------------------------------------- {{{
 
-shuf -n 1 ~/dev-tips.txt | cowsay -f tux
-
+echo "In progress for today:"
+curl "https://api.clubhouse.io/api/v3/search/stories?query=epic:70384%20is:started%20\!is:archived%20owner:leaheinhorn&page_size=10&token=${CLUBHOUSE_TOKEN}" &>/dev/null | jq ".data[] | .name" | cowsay -f tux
 
 # }}}
 

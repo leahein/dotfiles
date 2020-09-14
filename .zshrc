@@ -133,7 +133,7 @@ alias cat='bat'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias for activating a virtual environment
-alias va='source venv/bin/activate'
+alias va='source .venv/bin/activate'
 
 # Alias for copy / paste from terminal
 alias pbcopy='xclip -selection clipboard'
@@ -155,6 +155,7 @@ function drmi_old() {
 
 alias docker-clean='docker rmi --force $(docker images -a --filter=dangling=true)'
 alias docker-stop='docker stop $(docker ps -a -q)'
+alias dc='docker-compose'
 
 # VPN
 alias aws-vpn='nmcli c up aws'

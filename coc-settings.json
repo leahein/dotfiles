@@ -3,5 +3,12 @@
   "suggest.noselect": false,
   "suggest.floatEnable": false,
   "jedi.enable": true,
-  "tsserver.enableJavascript": false
+  "tsserver.enableJavascript": false,
+  "languageserver": {
+    "terraform-lsp": {
+      "command": "terraform-lsp",
+      "filetypes": ["terraform"],
+      "rootPatterns": ["Makefile", ".git"]
+    }
+  }
 }

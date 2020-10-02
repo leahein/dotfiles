@@ -275,8 +275,10 @@ map <Leader>vp :VimuxRunLastCommand<CR>
 
 " FZF {{{
 
+let $FZF_DEFAULT_COMMAND = "rg --files --hidden"
+
 nnoremap <silent> <C-P> :GFiles<CR>
-nnoremap <silent> <C-A> :Files<CR>
+nnoremap <silent> <C-F> :Files<CR>
 
 let g:fzf_action = {
   \ 'ctrl-s': 'split' }

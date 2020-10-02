@@ -276,6 +276,10 @@ map <Leader>vp :VimuxRunLastCommand<CR>
 " FZF {{{
 
 nnoremap <silent> <C-P> :GFiles<CR>
+nnoremap <silent> <C-A> :Files<CR>
+
+let g:fzf_action = {
+  \ 'ctrl-s': 'split' }
 
 " }}}
 

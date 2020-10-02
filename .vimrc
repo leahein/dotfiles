@@ -4,7 +4,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'dkprice/vim-easygrep'
 Plug 'airblade/vim-rooter'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-commentary'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'benmills/vimux'
@@ -15,6 +14,8 @@ Plug 'wincent/ferret'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'w0rp/ale'
 Plug 'ryanoasis/vim-devicons'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 
 " Python Formatting Plugins
 Plug 'hynek/vim-python-pep8-indent'
@@ -272,12 +273,10 @@ map <Leader>vc :VimuxPromptCommand<CR>
 map <Leader>vp :VimuxRunLastCommand<CR>
 " }}}
 
-" Ctrl p {{{
-let g:ctrlp_working_path_mode = 'rw' " start from cwd
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-" open first in current window and others as hidden
-let g:ctrlp_open_multiple_files = '1r'
-let g:ctrlp_use_caching = 0
+" FZF {{{
+
+nnoremap <silent> <C-P> :GFiles<CR>
+
 " }}}
 
 " vim-fugitive {{{

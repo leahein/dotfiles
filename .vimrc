@@ -281,7 +281,8 @@ nnoremap <silent> <C-P> :GFiles<CR>
 nnoremap <silent> <C-F> :Files<CR>
 
 let g:fzf_action = {
-  \ 'ctrl-s': 'split' }
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit' }
 
 " }}}
 

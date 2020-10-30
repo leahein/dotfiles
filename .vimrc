@@ -16,6 +16,7 @@ Plug 'w0rp/ale'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'nvim-treesitter/nvim-treesitter'
 
 " Python Formatting Plugins
 Plug 'hynek/vim-python-pep8-indent'
@@ -68,6 +69,35 @@ endfor
 
 call plug#end()
 "}}}
+
+" Tree Sitter (highlighting) {{{
+
+function! HandleVimEnter()
+lua <<EOF
+require('nvim-treesitter.configs').setup {
+  ensure_installed = {
+    'python',
+    'javascript',
+    'typescript',
+    'tsx',
+    'html',
+    'css',
+    'json',
+    'yaml',
+    'toml',
+    'bash',
+  },
+  highlight = {
+    enable = true, 
+    disable = {},
+  },
+}
+EOF
+endfunction
+augroup vimenter
+  autocmd! VimEnter * call HandleVimEnter()
+augroup END
+" }}}
 
 " Color Scheme Settings {{{
 colorscheme molokai

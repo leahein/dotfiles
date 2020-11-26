@@ -16,6 +16,7 @@
   b = branch
 
 [delta]
+  side-by-side = true
   plus-style =  syntax "#214f11" # set background color
   syntax-theme = Monokai Extended
   dark = true

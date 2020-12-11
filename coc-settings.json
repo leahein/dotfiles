@@ -3,7 +3,8 @@
   "suggest.noselect": false,
   "suggest.floatEnable": false,
   "jedi.enable": true,
-  "tsserver.enableJavascript": false,
+  "jedi.completion.disableSnippets": true,
+  "tsserver.enableJavascript": true,
   "languageserver": {
     "terraform-lsp": {
       "command": "terraform-lsp",

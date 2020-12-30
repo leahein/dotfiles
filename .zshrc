@@ -155,7 +155,7 @@ function drmi_old() {
 
 alias docker-clean='docker rmi --force $(docker images -a --filter=dangling=true)'
 alias docker-stop='docker stop $(docker ps -a -q)'
-alias dc='docker-compose'
+alias dc='USERID=$(id -u) docker-compose'
 
 # VPN
 alias aws-vpn='nmcli c up aws'

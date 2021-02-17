@@ -234,4 +234,6 @@ export NVM_DIR="$HOME/.nvm"
 # ASDF
 . $HOME/.asdf/asdf.sh
 
+export PATH="$HOME/.asdf/installs/poetry/1.0.0/bin:$PATH"
+
 # }}}

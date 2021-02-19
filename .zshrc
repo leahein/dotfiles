@@ -51,7 +51,7 @@ export EDITOR="nvim"
 
 # man
 export MANWIDTH=79
-export MANPAGER="nvim -c 'set ft=man' -"
+export MANPAGER=less
 
 # }}}
 

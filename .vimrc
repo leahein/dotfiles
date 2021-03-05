@@ -63,6 +63,7 @@ for coc_plugin in [
       \ 'neoclide/coc-yaml',
       \ 'iamcco/coc-vimlsp',
       \'josa42/coc-docker',
+      \'neoclide/coc-pairs',
       \ ]
   Plug coc_plugin, { 'do': 'yarn install --frozen-lockfile' }
 endfor

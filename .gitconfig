@@ -14,9 +14,10 @@
   s = status
   d = diff
   b = branch
+  p = pull
 
 [delta]
-  side-by-side = true
+  ; side-by-side = true
   plus-style =  syntax "#214f11" # set background color
   syntax-theme = Monokai Extended
   dark = true

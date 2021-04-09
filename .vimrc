@@ -204,7 +204,17 @@ nmap <leader><CR> <Plug>NewLineComma
 " CoC Intellisense {{{
 nmap <silent> <leader>d <Plug>(coc-definition)
 inoremap <silent><expr> <c-space> coc#refresh()
-nnoremap <silent> <C-K> :call <SID>show_documentation()<CR>
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
 
 " }}}
 

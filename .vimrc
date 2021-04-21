@@ -346,6 +346,14 @@ augroup indentation_le
 augroup END
 " }}}
 
+" Nginx Auto-complete configuration
+augroup custom_nginx
+  autocmd!
+  autocmd FileType nginx setlocal iskeyword+=$
+  autocmd FileType nginx let b:coc_additional_keywords = ['$']
+augroup end
+" }}}
+
 " vim-trailing-whitespace {{{
 augroup fix_whitespace_save
   let blacklist = ['markdown', 'vim']

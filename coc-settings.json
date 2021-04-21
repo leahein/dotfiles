@@ -10,6 +10,11 @@
       "command": "terraform-lsp",
       "filetypes": ["terraform"],
       "rootPatterns": ["Makefile", ".git"]
+    },
+    "nginx-language-server": {
+      "command": "nginx-language-server",
+      "filetypes": ["nginx"],
+      "rootPatterns": ["nginx.conf", ".git"]
     }
   }
 }

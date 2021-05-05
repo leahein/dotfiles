@@ -181,6 +181,8 @@ iabbrev jsdm
   \<CR>*
   \<CR>*/
 
+" abbreviate markdown image
+iabbrev mdi ![Text](path/to/image)
 " }}}
 
 " Folding settings: {{{

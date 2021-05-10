@@ -104,9 +104,9 @@ bindkey '^R' history-incremental-search-backward
 alias c='clear'
 
 # ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias ll='ls -alF | lolcat'
+alias la='ls -A | lolcat'
+alias l='ls -CF | lolcat'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then

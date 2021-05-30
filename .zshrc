@@ -102,6 +102,7 @@ bindkey '^R' history-incremental-search-backward
 # Aliases ---------------------------------------------------------- {{{
 
 alias c='clear'
+alias qemu='qemu-system-x86_64'
 
 # ls aliases
 alias ll='ls -alF | lolcat'

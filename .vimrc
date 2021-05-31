@@ -31,6 +31,7 @@ Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-markdown'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 " Language-specific highlighting
 Plug 'hdima/python-syntax'

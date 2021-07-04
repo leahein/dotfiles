@@ -7,7 +7,7 @@ source ~/.sensitive
 # Startup --------------------------------------------------------------- {{{
 
 echo "In progress for today:"
-curl "https://api.clubhouse.io/api/v3/search/stories?query=epic:97477%20is:started%20\!is:archived%20owner:leaheinhorn&page_size=10&token=${CLUBHOUSE_TOKEN}" &>/dev/null | jq ".data[] | .name" | cowsay -f tux
+curl "https://api.clubhouse.io/api/v3/search/stories?query=epic:97477%20is:started%20\!is:archived%20owner:leaheinhorn&page_size=10&token=${CLUBHOUSE_TOKEN}" &>/dev/null | jq ".data[] | .name" | cowsay -f tux | lolcat
 
 # }}}
 
@@ -22,6 +22,7 @@ zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 zplug "marlonrichert/zsh-autocomplete"
 
 zplug load
+
 # }}}
 
 # Options --------------------------------------------------------------- {{{
@@ -195,7 +196,7 @@ zstyle :prompt:pure:git:dirty color 255
 
 zstyle :prompt:pure:prompt:success color 161
 
-PURE_PROMPT_SYMBOL=//
+PURE_PROMPT_SYMBOL=💃
 
 
 function precmd() { vcs_info }

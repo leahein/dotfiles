@@ -205,7 +205,8 @@ function precmd() { vcs_info }
 
 # Autocomplete  with zsh-autocomplete ------------------------------------ {{{
 
-zstyle ':autocomplete:*' min-input 2
+zstyle ':autocomplete:*' min-input 3
+zstyle ':autocomplete:*' min-delay 0.4
 
 # }}}
 

@@ -19,7 +19,6 @@ zplug "zsh-users/zsh-syntax-highlighting"
 zplug "paulirish/git-open", as:plugin
 zplug "mafredri/zsh-async", from:github
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
-zplug "marlonrichert/zsh-autocomplete"
 
 zplug load
 
@@ -200,13 +199,6 @@ PURE_PROMPT_SYMBOL=💃
 
 
 function precmd() { vcs_info }
-
-# }}}
-
-# Autocomplete  with zsh-autocomplete ------------------------------------ {{{
-
-zstyle ':autocomplete:*' min-input 3
-zstyle ':autocomplete:*' min-delay 0.4
 
 # }}}
 

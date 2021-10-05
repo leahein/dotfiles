@@ -245,3 +245,5 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.asdf/installs/poetry/1.0.0/bin:$PATH"
 
 # }}}
+
+export PATH="$HOME/.asdf/installs/poetry/1.1.8/bin:$PATH"

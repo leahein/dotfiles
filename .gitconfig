@@ -10,12 +10,12 @@
 [alias]
   co = checkout
   c = commit
+  ca = commit --amend --no-edit
   a = add
   s = status
   d = diff
   b = branch
   p = pull
-  ca = commit --amend --no-edit
   pf = push --force-with-lease
 
 [delta]

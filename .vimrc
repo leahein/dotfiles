@@ -190,6 +190,9 @@ iabbrev jsdm
 
 " abbreviate markdown image
 iabbrev mdi ![Text](path/to/image)
+
+" abbreviate python Dict[str, Any]
+iabbrev dsa Dict[str, Any]
 " }}}
 
 " Folding settings: {{{
@@ -355,7 +358,7 @@ augroup indentation_le
 augroup END
 " }}}
 
-" Nginx Auto-complete configuration
+" Nginx Auto-complete configuration {{{
 augroup custom_nginx
   autocmd!
   autocmd FileType nginx setlocal iskeyword+=$

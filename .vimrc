@@ -55,6 +55,8 @@ Plug 'chr4/nginx.vim'
 Plug 'cespare/vim-toml'
 Plug 'elixir-editors/vim-elixir'
 Plug 'hashivim/vim-terraform'
+Plug 'pantharshit00/vim-prisma'
+Plug 'jxnblk/vim-mdx-js'
 
 " CoC intellisense, the future
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -66,8 +68,10 @@ for coc_plugin in [
       \ 'neoclide/coc-tsserver',
       \ 'neoclide/coc-yaml',
       \ 'iamcco/coc-vimlsp',
-      \'josa42/coc-docker',
-      \'neoclide/coc-pairs',
+      \ 'josa42/coc-docker',
+      \ 'neoclide/coc-pairs',
+      \ 'pantharshit00/coc-prisma',
+      \ 'onichandame/coc-mdx',
       \ ]
   Plug coc_plugin, { 'do': 'yarn install --frozen-lockfile' }
 endfor

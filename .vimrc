@@ -19,6 +19,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'tanvirtin/monokai.nvim'
 
 " Python Formatting Plugins
 Plug 'hynek/vim-python-pep8-indent'
@@ -104,10 +105,9 @@ augroup END
 " }}}
 
 " Color Scheme Settings {{{
-colorscheme molokai
-let g:molokai_original = 1
-let g:rehash256 = 1
-set t_Co=256
+
+colorscheme monokai
+
 "}}}
 
 " General Settings {{{

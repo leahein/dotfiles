@@ -1,5 +1,7 @@
 " All Plugins managed by Plugin Manager {{{
 call plug#begin('~/.vim/plugged')
+
+Plug 'github/copilot.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'dkprice/vim-easygrep'

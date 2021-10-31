@@ -72,6 +72,7 @@ for coc_plugin in [
       \ 'neoclide/coc-pairs',
       \ 'pantharshit00/coc-prisma',
       \ 'onichandame/coc-mdx',
+      \ 'neoclide/coc-highlight',
       \ ]
   Plug coc_plugin, { 'do': 'yarn install --frozen-lockfile' }
 endfor

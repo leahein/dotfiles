@@ -131,6 +131,7 @@ set noswapfile " Avoid swap files
 set wrap
 set spelllang=en_us
 set nocompatible " Turn off complete vi compatibility
+set mouse=a " Enable mouse support
 " }}}
 
 " Mappings {{{

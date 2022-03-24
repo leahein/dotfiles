@@ -18,7 +18,7 @@ Plug 'w0rp/ale'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'tanvirtin/monokai.nvim'
 
 " Python Formatting Plugins

@@ -7,7 +7,7 @@ source ~/.sensitive
 # Startup --------------------------------------------------------------- {{{
 
 echo "In progress for today:"
-curl "https://api.clubhouse.io/api/v3/search/stories?query=epic:97477%20is:started%20\!is:archived%20owner:leaheinhorn&page_size=10&token=${CLUBHOUSE_TOKEN}" &>/dev/null | jq ".data[] | .name" | cowsay -f tux | lolcat
+curl "https://api.clubhouse.io/api/v3/search/stories?query=epic:161858%20is:started%20\!is:archived%20owner:leaheinhorn&page_size=10&token=${CLUBHOUSE_TOKEN}" &>/dev/null | jq ".data[] | .name" | cowsay -f tux | lolcat
 
 # }}}
 

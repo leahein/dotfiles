@@ -15,7 +15,6 @@ Plug 'ckarnell/Antonys-macro-repeater'
 Plug 'wincent/ferret'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'w0rp/ale'
-Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}

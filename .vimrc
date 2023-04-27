@@ -249,6 +249,12 @@ let g:ale_lint_on_text_changed = 0 " turn off automatic checks
 let g:ale_lint_on_save = 1 " check only on file save
 let g:ale_virtualtext_cursor = 'disabled' " disable virtual text
 
+let g:ale_linters = { "python": ["ruff"] }
+let g:ale_fixers = {
+\       "python": ["black", "ruff"],
+\}
+
+nmap <leader>f <Plug>(ale_fix)
 " }}}
 
 " RagTag {{{

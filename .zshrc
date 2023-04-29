@@ -208,6 +208,8 @@ zmodload zsh/complist
 # Add ASDF completion
 fpath=(${ASDF_DIR}/completions $fpath)
 fpath=(~/.zsh/completion $fpath)
+fpath=(~/.zsh/completion $fpath)
+fpath=(~/.zfunc $fpath)
 
 # initialise completions
 autoload -Uz compinit

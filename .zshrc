@@ -223,6 +223,28 @@ eval $(thefuck --alias)
 
 # }}}
 
+# Functions -------------------------------------------------------------{{{
+
+# Install all rust dependencies
+function rustglobal-install() {
+  rustup component add rust-analyzer
+  rustup component add rust-src
+  cargo install bat
+  cargo install cargo-deb
+  cargo install cargo-edit
+  cargo install cargo-update
+  cargo install csvlens
+  cargo install fd-find
+  cargo install git-delta
+  cargo install ripgrep
+  cargo install sd
+  cargo install stylua --features lua52 --features luau
+  asdf reshim rust
+  cargo install-update -a
+}
+
+# }}}
+
 # Direnv  ---------------------------------------------------------- {{{
 
 eval "$(direnv hook zsh)"

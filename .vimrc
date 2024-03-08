@@ -33,7 +33,8 @@ Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-markdown'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
+Plug 'sotte/presenting.nvim'
 
 " Language-specific highlighting
 Plug 'rust-lang/rust.vim'
@@ -69,7 +70,6 @@ for coc_plugin in [
       \ 'josa42/coc-docker',
       \ 'neoclide/coc-pairs',
       \ 'pantharshit00/coc-prisma',
-      \ 'onichandame/coc-mdx',
       \ 'neoclide/coc-highlight',
       \ ]
   Plug coc_plugin, { 'do': 'yarn install --frozen-lockfile' }
@@ -379,6 +379,19 @@ augroup fix_whitespace_save
 augroup END
 " }}}
 
+" Presenting {{{
+
+function! Present()
+lua <<EOF
+require('presenting').setup {
+  cmd = { "Presenting" },
+}
+EOF
+endfunction
+augroup vimenter
+  autocmd! VimEnter * call Present()
+augroup END
+" }}}
 " Writing formatting {{{
 augroup write_formatting
   autocmd!

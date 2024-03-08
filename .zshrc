@@ -4,6 +4,7 @@ source ~/.sensitive
 
 # }}}
 
+
 # Startup --------------------------------------------------------------- {{{
 
 echo "Hello, Leah"
@@ -102,6 +103,7 @@ bindkey '^R' history-incremental-search-backward
 # Aliases ---------------------------------------------------------- {{{
 
 alias c='clear'
+alias f='nvim'
 alias qemu='qemu-system-x86_64'
 
 # ls aliases

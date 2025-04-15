@@ -131,6 +131,7 @@ set wrap
 set spelllang=en_us
 set nocompatible " Turn off complete vi compatibility
 set mouse=a " Enable mouse support
+set title " Set title of terminal to filename
 " }}}
 
 " Mappings {{{

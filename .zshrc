@@ -158,7 +158,7 @@ function drmi_old() {
 
 alias docker-clean='docker rmi --force $(docker images -a --filter=dangling=true)'
 alias docker-stop='docker stop $(docker ps -a -q)'
-alias dc='USERID=$(id -u) docker-compose'
+alias dc='USERID=$(id -u) docker compose'
 
 # VPN
 alias aws-vpn='nmcli c up aws'
@@ -219,11 +219,6 @@ compinit
 
 # }}}
 
-# Fffff ---------------------------------------------------------- {{{
-
-eval $(thefuck --alias)
-
-# }}}
 
 # Functions -------------------------------------------------------------{{{
 
@@ -241,7 +236,6 @@ function rustglobal-install() {
   cargo install ripgrep
   cargo install sd
   cargo install stylua --features lua52 --features luau
-  asdf reshim rust
   cargo install-update -a
 }
 
@@ -275,12 +269,3 @@ export PATH=$HOME/bin:$PATH:/opt/python/bin
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# ASDF
-. $HOME/.asdf/asdf.sh
-
-export PATH="$HOME/.asdf/installs/poetry/1.0.0/bin:$PATH"
-
-# }}}
-
-export PATH="$HOME/.asdf/installs/poetry/1.1.8/bin:$PATH"

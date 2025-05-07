@@ -18,6 +18,7 @@ Plug 'w0rp/ale'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'https://github.com/hedengran/fga.nvim'
 Plug 'tanvirtin/monokai.nvim'
 
 " Python Formatting Plugins
@@ -376,8 +377,19 @@ augroup end
 " vim-trailing-whitespace {{{
 augroup fix_whitespace_save
   let blacklist = ['markdown', 'vim']
-  autocmd BufWritePre * if index(blacklist, &ft) < 0 | execute ':FixWhitespace'
+  autocmd BufWritePre * if index(blacklist, &ft) < 0 | execute ':FixWhitespace' | endif
 augroup END
+" }}}
+
+" FGA {{{
+
+" Initialize FGA plugin directly rather than in a function
+lua <<EOF
+require('fga').setup({
+  install_treesitter_grammar = true,
+})
+EOF
+
 " }}}
 
 " Presenting {{{

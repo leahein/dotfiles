@@ -21,6 +21,10 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'https://github.com/hedengran/fga.nvim'
 Plug 'tanvirtin/monokai.nvim'
 
+" AI
+Plug 'greggh/claude-code.nvim'
+Plug 'nvim-lua/plenary.nvim'
+
 " Python Formatting Plugins
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'tell-k/vim-autopep8'

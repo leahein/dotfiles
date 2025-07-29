@@ -4,7 +4,6 @@ source ~/.sensitive
 
 # }}}
 
-
 # Startup --------------------------------------------------------------- {{{
 
 echo "Hello, Leah"
@@ -219,7 +218,6 @@ compinit
 
 # }}}
 
-
 # Functions -------------------------------------------------------------{{{
 
 # Install all rust dependencies
@@ -256,6 +254,13 @@ eval "$(~/.local/bin/mise activate zsh)"
 # Zoxide  ---------------------------------------------------------- {{{
 
 eval "$(zoxide init zsh)"
+
+# }}}
+
+# Claude Code ---------------------------------------------------------- {{{
+
+export AWS_REGION="us-east-1"
+export CLAUDE_CODE_USE_BEDROCK="1"
 
 # }}}
 

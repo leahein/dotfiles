@@ -159,6 +159,7 @@ vnoremap <expr> // 'y/\V'.escape(@",'\').'<CR>'
 
 " Clear highlighting after find with esc
 nnoremap <silent> <esc> :noh<return><esc>
+
 " }}}
 
 " fix misspellings and abbreviations of commands {{{
@@ -396,6 +397,16 @@ EOF
 
 " }}}
 
+" Claude Code {{{
+
+lua << EOF
+require('claude-code').setup({
+  command = "CLAUDE_CODE_USE_BEDROCK=1 claude"
+})
+EOF
+
+" }}}
+
 " Presenting {{{
 
 function! Present()
@@ -409,6 +420,7 @@ augroup vimenter
   autocmd! VimEnter * call Present()
 augroup END
 " }}}
+
 " Writing formatting {{{
 augroup write_formatting
   autocmd!

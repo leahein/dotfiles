@@ -4,6 +4,7 @@
   helper = !/usr/bin/gh auth git-credential
 [user]
   email = leinhorn@keplergrp.com
+  name = Leah Einhorn
 
 [core]
   pager = delta

@@ -341,7 +341,7 @@ map <Leader>vp :VimuxRunLastCommand<CR>
 
 " FZF {{{
 
-let $FZF_DEFAULT_COMMAND = "rg --files --hidden"
+let $FZF_DEFAULT_COMMAND = "rg --files --hidden --no-ignore"
 
 nnoremap <silent> <C-P> :GFiles<CR>
 nnoremap <silent> <C-F> :Files<CR>
@@ -401,7 +401,31 @@ EOF
 
 lua << EOF
 require('claude-code').setup({
-  command = "CLAUDE_CODE_USE_BEDROCK=1 claude"
+  command = "CLAUDE_CODE_USE_BEDROCK=1 claude",
+  window = {
+    position = "float",  -- Position of the window: "botright", "topleft", "vertical", "float", etc.
+    -- Floating window configuration (only applies when position = "float")
+    float = {
+      width = "90%",        -- Width: number of columns or percentage string
+      height = "90%",       -- Height: number of rows or percentage string
+      row = "center",       -- Row position: number, "center", or percentage string
+      col = "center",       -- Column position: number, "center", or percentage string
+      relative = "editor",  -- Relative to: "editor" or "cursor"
+      border = "rounded",   -- Border style: "none", "single", "double", "rounded", "solid", "shadow"
+    },
+    keymaps = {
+      toggle = {
+        normal = "<C-,>",       -- Normal mode keymap for toggling Claude Code, false to disable
+        terminal = "<C-,>",     -- Terminal mode keymap for toggling Claude Code, false to disable
+        variants = {
+          continue = "<leader>cC", -- Normal mode keymap for Claude Code with continue flag
+          verbose = "<leader>cV",  -- Normal mode keymap for Claude Code with verbose flag
+        },
+      },
+      window_navigation = true, -- Enable window navigation keymaps (<C-h/j/k/l>)
+      scrolling = true,         -- Enable scrolling keymaps (<C-f/b>) for page up/down
+    },
+  },
 })
 EOF
 

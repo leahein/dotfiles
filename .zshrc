@@ -53,6 +53,9 @@ export EDITOR="nvim"
 export MANWIDTH=79
 export MANPAGER=less
 
+# Temp
+export TMPDIR=$HOME/tmp
+
 # }}}
 
 # Colors --------------------------------------------------------------- {{{
